@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Alcedo">
+    
+    <title>
+        
+            java学习笔记-基础语法 |
+        
+        Alcedo
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/head.jpg">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"alcedo.work","root":"/","language":"zh-cn","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/head.jpg","favicon":"/images/head.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.jpg","description":"没人喜欢孤独，只是不愿失望"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.1"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                Alcedo
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">java学习笔记-基础语法</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/head.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Alcedo</span>
+                        
+                            <span class="author-label">大魔法师</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-07-29 11:14:45
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Java学习笔记</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/study-note/">study note</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Java/">Java</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="1-注释"><a href="#1-注释" class="headerlink" title="1.注释"></a>1.注释</h1><ul>
+<li><strong>书写注释是一个非常好的习惯</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这是单行注释</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">   这是</span></span><br><span class="line"><span class="comment">   多行</span></span><br><span class="line"><span class="comment">   注释</span></span><br><span class="line"><span class="comment">*/</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  <span class="doctag">@Description</span> 这是文档注释</span></span><br><span class="line"><span class="comment"> *  <span class="doctag">@Author</span> alcedoM</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="2-标识符和关键字"><a href="#2-标识符和关键字" class="headerlink" title="2.标识符和关键字"></a>2.标识符和关键字</h1><ul>
+<li><p><strong>Java所有的组成部分都需要名字，类名，变量名，方法名都被称为标识符</strong></p>
+</li>
+<li><p>只能以（A-Z/a-z/$/_）开头，之后可以是（A-Z/a-z/$/下划线/数字）的任意组合</p>
+</li>
+<li><p>不能用关键字作为标识符</p>
+</li>
+<li><p>大小写敏感</p>
+</li>
+<li><p>ex: name, $name, _name</p>
+</li>
+</ul>
+<h1 id="3-数据类型"><a href="#3-数据类型" class="headerlink" title="3.数据类型"></a>3.数据类型</h1><ul>
+<li><p>强类型语言，所有变量先定义才能使用</p>
+</li>
+<li><p>Java的数据类型分为</p>
+<ul>
+<li><p>基本类型</p>
+<ul>
+<li><p>整数类型（数字之间可以用下划线分割：1_000_000）</p>
+<ul>
+<li>byte</li>
+<li>short</li>
+<li>int</li>
+<li>long <code>long num = 10L;</code></li>
+</ul>
+</li>
+<li><p>浮点类型</p>
+<ul>
+<li>float <code>float num = 3.14F;</code></li>
+<li>double</li>
+</ul>
+</li>
+<li><p>字符类型</p>
+<ul>
+<li>char</li>
+</ul>
+</li>
+<li><p>字符串</p>
+<ul>
+<li>String(不是关键字，是类)</li>
+</ul>
+</li>
+<li><p>布尔类型</p>
+<ul>
+<li>boolean</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>引用类型</p>
+<ul>
+<li>类</li>
+<li>接口</li>
+<li>数组</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>字节： 位（bit)–&gt;字节（byte/B）–&gt; 1024byte = 1KB</p>
+</li>
+<li><p>进制</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line"><span class="comment">//默认十进制</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> i = <span class="number">010</span>; </span><br><span class="line"><span class="comment">//八进制前面加0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> i = <span class="number">0x10</span>;</span><br><span class="line"><span class="comment">//十六进制前面加0x</span></span><br></pre></td></tr></table></figure></li>
+<li><p>浮点数扩展</p>
+<ul>
+<li><strong>避免使用浮点型进行比较</strong></li>
+<li><strong>避免使用浮点型进行比较</strong></li>
+<li><strong>避免使用浮点型进行比较</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> f = <span class="number">0.1f</span>;</span><br><span class="line"><span class="keyword">double</span> d = <span class="number">1.0</span>/<span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">System.out.print(f);</span><br><span class="line">System.out.print(d);</span><br><span class="line">System.out.print(f==d);</span><br><span class="line"><span class="comment">//输出结果：0.1 0.1 false</span></span><br></pre></td></tr></table></figure></li>
+<li><p>字符拓展</p>
+<ul>
+<li><p>强制转换可以把字符转换为数字</p>
+</li>
+<li><p>A = 65； a = 97；大小写直接差32</p>
+</li>
+<li><p>转义字符</p>
+<ul>
+<li>\n 换行</li>
+<li>\t 制表符</li>
+<li>……</li>
+</ul>
+</li>
+<li><p>思考</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">String a = <span class="keyword">new</span> String(<span class="string">&#x27;hello world&#x27;</span>);</span><br><span class="line">String b = <span class="keyword">new</span> String(<span class="string">&#x27;hello world&#x27;</span>);</span><br><span class="line">String c = <span class="string">&#x27;hello world&#x27;</span>;</span><br><span class="line">String d = <span class="string">&#x27;hello world&#x27;</span>;</span><br><span class="line"></span><br><span class="line">System.out.print(a==b);</span><br><span class="line">System.out.print(c==d);</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出结果第一个false 第二个true</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>布尔值扩展</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</span><br><span class="line"><span class="keyword">if</span> (flag == <span class="keyword">true</span>)&#123;&#125;;</span><br><span class="line"><span class="keyword">if</span> (flag)&#123;&#125;;</span><br><span class="line"><span class="comment">//2，3行完全等价</span></span><br></pre></td></tr></table></figure></li>
+<li><p>类型转换</p>
+<ul>
+<li><p>优先级：byte, short, char-&gt; int-&gt; long-&gt; float-&gt; double</p>
+</li>
+<li><p>强制转换（高到低）：<code>(类型)变量</code></p>
+</li>
+<li><p>自动转换（低到高）</p>
+</li>
+<li><p>注意</p>
+<ol>
+<li>不能对布尔类型进行转换 </li>
+<li>不能把对象类型转化为不相干的类型</li>
+<li>强制转换存在内存溢出和精度问题</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> money = <span class="number">10_0000_0000</span>;</span><br><span class="line"><span class="keyword">int</span> years = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">long</span> total = money * years;</span><br><span class="line"><span class="comment">//内存溢出，money和years先以int类型计算后转换为long</span></span><br><span class="line"><span class="keyword">long</span> total2 = money * ((<span class="keyword">long</span>)years);</span><br><span class="line"><span class="comment">//解决</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h1 id="4-变量"><a href="#4-变量" class="headerlink" title="4.变量"></a>4.变量</h1><ul>
+<li><p>作用域</p>
+<ul>
+<li><p>类变量：有static修饰</p>
+</li>
+<li><p>实例变量：类里方法外，从属于对象</p>
+</li>
+<li><p>局部变量：只在方法里面有用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Study</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">static</span> String name = <span class="string">&#x27;balabala&#x27;</span>;</span><br><span class="line">    <span class="comment">//类变量</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">    <span class="comment">//实例变量，从属对象，可以不初始化，有默认值</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> class <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">10</span> ;</span><br><span class="line">        <span class="comment">//局部变量，必须初始化</span></span><br><span class="line">        </span><br><span class="line">        Study a = <span class="keyword">new</span> Study;</span><br><span class="line">        System.out.print(a.age);</span><br><span class="line">        <span class="comment">//实例变量，可以直接用，默认为0/0.0/null/false</span></span><br><span class="line">        </span><br><span class="line">        System.out.print(name);</span><br><span class="line">        <span class="comment">//类变量，不需要new对象可以直接用</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>常量：用final修饰，不可更改</p>
+</li>
+<li><p>变量命名规范</p>
+<ol>
+<li>见名知意</li>
+<li>变量：首字母小写+驼峰：lastName</li>
+<li>常量：大写字母+下划线分割：MAX_VALUE</li>
+<li>类名：首字母大写+驼峰：Hello, HelloWorld</li>
+<li>方法名：首字母小写+驼峰：runApp()</li>
+</ol>
+</li>
+</ul>
+<h1 id="5-运算符"><a href="#5-运算符" class="headerlink" title="5.运算符"></a>5.运算符</h1><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>算数</td>
+<td>+，-，*，/，%，++，–</td>
+</tr>
+<tr>
+<td>赋值</td>
+<td>=</td>
+</tr>
+<tr>
+<td>关系</td>
+<td>&gt;，&lt;，==，&gt;=，&lt;=，!=，instanceof</td>
+</tr>
+<tr>
+<td>逻辑</td>
+<td>&amp;&amp;，||，!</td>
+</tr>
+<tr>
+<td>位</td>
+<td>&amp;，|，^(相同取0不同取1)，~（取反），&gt;&gt;（/2），&lt;&lt;（*2），&gt;&gt;&gt;</td>
+</tr>
+<tr>
+<td>三元</td>
+<td>条件？成立时：不成立时</td>
+</tr>
+<tr>
+<td>扩展</td>
+<td>+=，-=，*=，/=</td>
+</tr>
+</tbody></table>
+<ul>
+<li>优先级（）</li>
+</ul>
+<h1 id="6-包机制"><a href="#6-包机制" class="headerlink" title="6.包机制"></a>6.包机制</h1><ul>
+<li><p>一般用公司域名倒置作为包名</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.alcedo.www;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util;</span><br><span class="line"><span class="comment">//导包</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> class.....</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="7-JavaDoc"><a href="#7-JavaDoc" class="headerlink" title="7.JavaDoc"></a>7.JavaDoc</h1><ul>
+<li><p>javadoc命令是用来生成自己API文档</p>
+</li>
+<li><p><a class="link"   target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/index.html" >Java API文档<i class="fas fa-external-link-alt"></i></a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Alcedo</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span> 1.8</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 命令行</span></span><br><span class="line">javadoc -encoding UTF-8 -charset UTF-8 xxx.java</span><br></pre></td></tr></table></figure></li>
+<li><p>或者在IDEA中直接生成</p>
+</li>
+</ul>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：java学习笔记-基础语法</li>
+        <li>Post author：Alcedo</li>
+        <li>Create time：2021-07-29 11:14:45</li>
+        <li>
+            Post link：https://alcedo.work/2021/07/29/javaStudy/javaStudyNote-2/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/07/31/javaStudy/javaStudyNote-3/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">java学习笔记-流程控制</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/07/28/javaStudy/javaStudyNote-1/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Java学习笔记-入门</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;Comments</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script 
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script >
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: '4Mhr8g94eF9FSB2KV5jSswEi-gzGzoHsz',
+                    appKey: 'p9k3BVGxo8dDWMAO5qxtlgfd',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '说点什么吧~',
+                    lang: 'zh-cn'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'Alcedo';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('false') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Alcedo</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.1</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E6%B3%A8%E9%87%8A"><span class="nav-text">1.注释</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E6%A0%87%E8%AF%86%E7%AC%A6%E5%92%8C%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-text">2.标识符和关键字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">3.数据类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%8F%98%E9%87%8F"><span class="nav-text">4.变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">5.运算符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E5%8C%85%E6%9C%BA%E5%88%B6"><span class="nav-text">6.包机制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-JavaDoc"><span class="nav-text">7.JavaDoc</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts">
+    
+        <script src="/js/left-side-toggle.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script>
+    
+</div>
+
+
+
+</body>
+</html>

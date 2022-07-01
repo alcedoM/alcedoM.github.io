@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Alcedo">
+    
+    <title>
+        
+            Hexo + Github 分分钟搭建属于自己的博客 |
+        
+        Alcedo
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/head.jpg">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"alcedo.work","root":"/","language":"zh-cn","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/head.jpg","favicon":"/images/head.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.jpg","description":"没人喜欢孤独，只是不愿失望"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.1"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                Alcedo
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Hexo + Github 分分钟搭建属于自己的博客</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/head.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Alcedo</span>
+                        
+                            <span class="author-label">大魔法师</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-03-17 23:30:38
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%88%86%E4%BA%AB/">分享</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/hexo/">hexo</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我来啦，第一篇分享就来教教如何搭建自己的博客吧！就像你看到这样。</p>
+<p>之前一直以为搭建一个自己的网站费时费力费钱，但是现在才知道<strong>Github</strong>，才知道并不用费很多心力在前期准备上，可以投入到内容的创作。</p>
+<p>通过Hexo，可以快速构建个人博客，并搭建到 <strong>Github</strong> 上供他人访问。</p>
+<p><strong>重点是免费喔</strong></p>
+<p>不管你是一位ITer想搭建技术博客，还是一个普通人只想记录生活，看看总没错！</p>
+<h1 id="Hexo-介绍"><a href="#Hexo-介绍" class="headerlink" title="Hexo 介绍"></a>Hexo 介绍</h1><p>Hexo是一个快速、简洁且高效的博客框架，具有较完善的体系生态，也是一个正在不断开发完善的框架。</p>
+<p>Hexo 会解析 <code>markdown</code> 语法 生成对应的 html 并展示在你的网站上。</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://hexo.io/" >官方主页<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://hexo.io/zh-cn/" >中文文档<i class="fas fa-external-link-alt"></i></a></p>
+<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><h2 id="1-Github"><a href="#1-Github" class="headerlink" title="1.Github"></a>1.Github</h2><h3 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h3><p>打开<a class="link"   target="_blank" rel="noopener" href="https://github.com/" >Github官网<i class="fas fa-external-link-alt"></i></a>如图</p>
+<p>点击<code>Sign in</code>登录<code>Sign up</code>注册</p>
+<p><img src="https://i.loli.net/2021/03/17/O5p1ubi9eWXy6nd.png" alt="Snipaste_2021-03-17_13-54-25.png"></p>
+<h3 id="创建新的仓库"><a href="#创建新的仓库" class="headerlink" title="创建新的仓库"></a>创建新的仓库</h3><p>页面右上头像旁边的加号 点击New repository</p>
+<p><img src="https://i.loli.net/2021/03/17/tBV534kYaOhDofy.png" alt="s.png"></p>
+<p>把仓库命名为<code>yourname.github.io</code></p>
+<p><code>yourname</code>最好和你的用户名一致</p>
+<p>比如：我就应该命名为<code>alcedoM.github.io</code></p>
+<p>点击<strong>Create repository</strong></p>
+<p><img src="https://i.loli.net/2021/03/17/WpCloTgD9i8MAHI.png" alt="Snipaste_2021-03-17_14-03-30.png"></p>
+<h2 id="2-创建本地项目"><a href="#2-创建本地项目" class="headerlink" title="2.创建本地项目"></a>2.创建本地项目</h2><p>在合适的位置创建一个文件夹，这个文件夹将是Hexo博客的本地调试、修改，文章创作，上传等的地方</p>
+<h2 id="3-安装Git"><a href="#3-安装Git" class="headerlink" title="3.安装Git"></a>3.安装Git</h2><p>Git 是用来从本地上传代码到你创建的Github仓库的。可以上传、修改Hexo的本体以及之后的文章</p>
+<p><strong>到<a class="link"   target="_blank" rel="noopener" href="https://git-scm.com/downloads" >Git官网<i class="fas fa-external-link-alt"></i></a>下载符合自己系统的Git版本</strong></p>
+<h3 id="检查"><a href="#检查" class="headerlink" title="检查"></a>检查</h3><p>打开Git Bash输入以下内容检查（$不用自己输入）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git --version</span><br></pre></td></tr></table></figure>
+
+<p>有如下显示你就成功了</p>
+<p><img src="https://i.loli.net/2021/03/17/XJE5HDbQpxTmjVG.png" alt="Snipaste_2021-03-17_18-39-04.png"></p>
+<h2 id="4-node-js"><a href="#4-node-js" class="headerlink" title="4.node.js"></a>4.node.js</h2><p><strong>到<a class="link"   target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/" >node.js官网<i class="fas fa-external-link-alt"></i></a>下载node.js</strong></p>
+<p>建议下载<strong>LTS</strong>版本并安装</p>
+<h3 id="检查-1"><a href="#检查-1" class="headerlink" title="检查"></a>检查</h3><p>打开Git Bash输入以下代码检查</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm -v</span><br><span class="line">$ node -v</span><br></pre></td></tr></table></figure>
+
+<p>有如下显示你就成功了</p>
+<p><img src="https://i.loli.net/2021/03/17/FAHsiyv9VUOI7MC.png" alt="Snipaste_2021-03-17_18-44-54.png"></p>
+<p><strong>恭喜你已经完成准备工作！</strong></p>
+<h1 id="Hexo-安装"><a href="#Hexo-安装" class="headerlink" title="Hexo 安装"></a>Hexo 安装</h1><p>来到刚刚创建的空文件夹下，右键菜单，选择<code>Git Bash Here</code></p>
+<p><img src="https://i.loli.net/2021/03/17/fHCM89bXclrkSKd.png" alt="Snipaste_2021-03-17_18-36-33.png"></p>
+<p>或者直接打开Git，使用<code>$ cd 盘符:/文件夹/.../目标文件夹 </code>来达到你的文件夹。例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> e:/hexo</span><br></pre></td></tr></table></figure>
+
+<p>输入命令安装hexo</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+<p>等待完成后输入命令检查</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo -v</span><br></pre></td></tr></table></figure>
+
+<p>输入命令初始化hexo</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure>
+
+<p>输入命令补全未安装的组件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+
+<p>输入命令生成相关文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这时你的文件夹下就会生成下列信息</p>
+<ul>
+<li><p>node_modules: 依赖包</p>
+</li>
+<li><p>public：存放生成的页面</p>
+</li>
+<li><p>scaffolds：生成文章的一些模板</p>
+</li>
+<li><p>source：用来存放你的文章</p>
+</li>
+<li><p>themes：主题</p>
+</li>
+<li><p><strong>_config.yml: 博客的配置文件之后会有很多调整</strong></p>
+</li>
+</ul>
+<p>输入命令打开hexo本地服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+
+<p>这时打开浏览器输入<code>https://localhost:4000</code>就可以看到博客界面啦</p>
+<p>这个亚子</p>
+<p><img src="https://i.loli.net/2021/03/17/J92ifsdZVpYcUtn.png" alt="Snipaste_2021-03-17_18-39-04.png"></p>
+<p>按<code>ctrl + C</code>可以中止服务</p>
+<p><strong>恭喜你已经完成hexo安装！</strong></p>
+<h1 id="Hexo-部署"><a href="#Hexo-部署" class="headerlink" title="Hexo 部署"></a>Hexo 部署</h1><h2 id="1-生成SSH配置到github"><a href="#1-生成SSH配置到github" class="headerlink" title="1.生成SSH配置到github"></a>1.生成SSH配置到github</h2><h3 id="生成SSH"><a href="#生成SSH" class="headerlink" title="生成SSH"></a>生成SSH</h3><p>打开<strong>Git Bash</strong>输入命令,其中<code>yourname</code>填写你的GitHub用户名<code>youremail</code>填写你的GitHub邮箱</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">&quot;yourname&quot;</span></span><br><span class="line">$ git config --global user.email <span class="string">&quot;youremail&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>输入命令检查是否填写正确</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config user.name</span><br><span class="line">$ git config user.email</span><br></pre></td></tr></table></figure>
+
+<p>输入命令生成SSH</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">&quot;youremail&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>打开生成时告诉你的目录，一般在<code>C:/用户/&quot;你的用户名&quot;/.ssh</code></p>
+<p>用记事本（或其他应用）打开<strong>id_rsa.pub</strong>文件复制其中的密钥（全选）</p>
+<p><img src="https://i.loli.net/2021/03/17/TZPsQ6ejbWEMYNB.png" alt="Snipaste_2021-03-17_19-48-31.png"></p>
+<h3 id="配置到Github"><a href="#配置到Github" class="headerlink" title="配置到Github"></a>配置到Github</h3><p>打开Github，右上角点击头像，下拉菜单找到<strong>settings</strong></p>
+<p><img src="https://i.loli.net/2021/03/17/Qxj3lO9ILemkBsV.png" alt="Snipaste_2021-03-17_19-53-44.png"></p>
+<p>右边栏找到<strong>SSH and GPG keys</strong>之后点击<strong>New SSH key</strong></p>
+<p><img src="https://i.loli.net/2021/03/17/n53UTo7XiN19I6t.png" alt="Snipaste_2021-03-17_19-54-22.png"></p>
+<p>title随意，key填入之前的密钥，点击<strong>Add SSH key</strong></p>
+<p>回到<strong>Git Bash</strong>输入命令检查是否成功</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-部署hexo"><a href="#2-部署hexo" class="headerlink" title="2.部署hexo"></a>2.部署hexo</h2><h3 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h3><p>找到并打开站点配置文件 <code>_config.yml</code>，翻到最后，修改为：</p>
+<p><strong>yourname</strong>是你的GitHub用户名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;yourname&#x2F;yourname.github.io.git</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装deploy-git"><a href="#安装deploy-git" class="headerlink" title="安装deploy-git"></a>安装deploy-git</h3><p>回到<strong>Git Bash</strong>输入命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<h3 id="部署文件"><a href="#部署文件" class="headerlink" title="部署文件"></a>部署文件</h3><p>输入命令清除之前的文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
+
+<p>重新生成文章和网页</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
+
+<p>部署到GIthub</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+
+
+
+<p>第一次在<code>hexo d</code>的时候会弹框要求输入你GitHub的用户名和密码</p>
+<p>部署完成你就可以在你对应的仓库看到你上传的文件</p>
+<p>这时在地址栏输入<strong>yourname.github.io</strong>就可以看到你的网站啦</p>
+<p><strong>恭喜你部署Hexo成功！</strong></p>
+<h1 id="Hexo-文章写作"><a href="#Hexo-文章写作" class="headerlink" title="Hexo 文章写作"></a>Hexo 文章写作</h1><h2 id="1-写文章"><a href="#1-写文章" class="headerlink" title="1.写文章"></a>1.写文章</h2><p>在你的hexo文件夹下右键打开<strong>Git Bash</strong>创建新文章</p>
+<p>your-article-name 可以自己取</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new your-article-name</span><br></pre></td></tr></table></figure>
+
+<p>这时在<code>./source/_posts</code>文件夹下可以看到<strong>your-article-name.md</strong>就是你的文章啦！</p>
+<p>建议安装相应的markdown编辑软件来进行编辑。</p>
+<p><strong>markdown很简单啦不要被吓到！！！</strong></p>
+<p>参考&gt;<a class="link"   target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/61024670" >markdown软件<i class="fas fa-external-link-alt"></i></a> | <a class="link"   target="_blank" rel="noopener" href="https://www.jianshu.com/p/191d1e21f7ed" >markdown语法<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="2-预览"><a href="#2-预览" class="headerlink" title="2.预览"></a>2.预览</h2><p>回到<strong>Git Bash</strong>输入命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+
+<p><strong>这时就可以在<code>localhost:4000</code>预览</strong></p>
+<h2 id="3-上传"><a href="#3-上传" class="headerlink" title="3.上传"></a>3.上传</h2><p>回到<strong>Git Bash</strong>上传</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+
+<p><strong>这时就可以在你的博客看到更新啦</strong></p>
+<h1 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a><a href="http://alcedo.work/2021/03/19/hexo-theme/">更换主题</a></h1><h1 id="我遇到的问题"><a href="#我遇到的问题" class="headerlink" title="我遇到的问题"></a>我遇到的问题</h1><h2 id="1-安装git和node后输入node-v无反应"><a href="#1-安装git和node后输入node-v无反应" class="headerlink" title="1.安装git和node后输入node -v无反应"></a>1.安装git和node后输入<code>node -v</code>无反应</h2><ul>
+<li>解决</li>
+<li>建议安装目录就在C盘不要修改</li>
+</ul>
+<h2 id="2-安装hexo后-输入-hexo-v报错"><a href="#2-安装hexo后-输入-hexo-v报错" class="headerlink" title="2.安装hexo后 输入$ hexo -v报错"></a>2.安装hexo后 输入<code>$ hexo -v</code>报错</h2><ul>
+<li>解决 </li>
+<li>我当时是因为node.js 版本过低，从官网下载最新版后成功</li>
+</ul>
+<h2 id="3-部署时失败"><a href="#3-部署时失败" class="headerlink" title="3.部署时失败"></a>3.部署时失败</h2><ul>
+<li>解决</li>
+<li>网络问题，有些地方访问不了GitHub，建议翻墙</li>
+<li>目录下<code>.deploy_git</code>有问题，建议删除再<code>hexo clean</code>|<code>hexo g</code>|<code>hexo d</code></li>
+</ul>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：Hexo + Github 分分钟搭建属于自己的博客</li>
+        <li>Post author：Alcedo</li>
+        <li>Create time：2021-03-17 23:30:38</li>
+        <li>
+            Post link：https://alcedo.work/2021/03/17/hexo/hexo-blog-website/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/03/19/hexo/hexo-config/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">hexo配置</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/03/16/other/first-blog/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">第一篇文章</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;Comments</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script 
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script >
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: '4Mhr8g94eF9FSB2KV5jSswEi-gzGzoHsz',
+                    appKey: 'p9k3BVGxo8dDWMAO5qxtlgfd',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '说点什么吧~',
+                    lang: 'zh-cn'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'Alcedo';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('false') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Alcedo</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.1</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-%E4%BB%8B%E7%BB%8D"><span class="nav-text">Hexo 介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%86%E5%A4%87"><span class="nav-text">准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Github"><span class="nav-text">1.Github</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C"><span class="nav-text">注册</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84%E4%BB%93%E5%BA%93"><span class="nav-text">创建新的仓库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%88%9B%E5%BB%BA%E6%9C%AC%E5%9C%B0%E9%A1%B9%E7%9B%AE"><span class="nav-text">2.创建本地项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%AE%89%E8%A3%85Git"><span class="nav-text">3.安装Git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5"><span class="nav-text">检查</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-node-js"><span class="nav-text">4.node.js</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5-1"><span class="nav-text">检查</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-%E5%AE%89%E8%A3%85"><span class="nav-text">Hexo 安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-%E9%83%A8%E7%BD%B2"><span class="nav-text">Hexo 部署</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%94%9F%E6%88%90SSH%E9%85%8D%E7%BD%AE%E5%88%B0github"><span class="nav-text">1.生成SSH配置到github</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E6%88%90SSH"><span class="nav-text">生成SSH</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%88%B0Github"><span class="nav-text">配置到Github</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%83%A8%E7%BD%B2hexo"><span class="nav-text">2.部署hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE"><span class="nav-text">修改配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85deploy-git"><span class="nav-text">安装deploy-git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E6%96%87%E4%BB%B6"><span class="nav-text">部署文件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-%E6%96%87%E7%AB%A0%E5%86%99%E4%BD%9C"><span class="nav-text">Hexo 文章写作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%86%99%E6%96%87%E7%AB%A0"><span class="nav-text">1.写文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%A2%84%E8%A7%88"><span class="nav-text">2.预览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E4%B8%8A%E4%BC%A0"><span class="nav-text">3.上传</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98"><span class="nav-text">更换主题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%88%91%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">我遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85git%E5%92%8Cnode%E5%90%8E%E8%BE%93%E5%85%A5node-v%E6%97%A0%E5%8F%8D%E5%BA%94"><span class="nav-text">1.安装git和node后输入node -v无反应</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%AE%89%E8%A3%85hexo%E5%90%8E-%E8%BE%93%E5%85%A5-hexo-v%E6%8A%A5%E9%94%99"><span class="nav-text">2.安装hexo后 输入$ hexo -v报错</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E9%83%A8%E7%BD%B2%E6%97%B6%E5%A4%B1%E8%B4%A5"><span class="nav-text">3.部署时失败</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts">
+    
+        <script src="/js/left-side-toggle.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script>
+    
+</div>
+
+
+
+</body>
+</html>
