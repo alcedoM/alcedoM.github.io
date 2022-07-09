@@ -504,7 +504,35 @@
 </tbody></table>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">    <span class="comment">//创建对象</span></span><br><span class="line">    SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">&quot;yyyy/MM/dd HH:mm:ss&quot;</span>);</span><br><span class="line">    <span class="comment">//创建Date</span></span><br><span class="line">    Date date = <span class="keyword">new</span> Date();</span><br><span class="line">    <span class="comment">//格式化Date</span></span><br><span class="line">    String str = sdf.format(date);</span><br><span class="line">    System.out.println(str);</span><br><span class="line">    <span class="comment">//解析字符串</span></span><br><span class="line">    String str2 = <span class="string">&quot;2022/1/1 00:00:00&quot;</span>;</span><br><span class="line">    Date date2 = sdf.parse(str2);</span><br><span class="line">    System.out.println(date2.toLocaleString());</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//结果</span></span><br><span class="line"><span class="comment">//2022/07/08 17:36:56</span></span><br><span class="line"><span class="comment">//2022-1-1 0:00:00</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="System类"><a href="#System类" class="headerlink" title="System类"></a>System类</h1><p>learning···</p>
+<h1 id="System类"><a href="#System类" class="headerlink" title="System类"></a>System类</h1><ul>
+<li>主要用于获取系统的属性数据和其他操作</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>arraycopy()</td>
+<td>复制数组</td>
+</tr>
+<tr>
+<td>currentTimeMillis()</td>
+<td>获取当前系统时间</td>
+</tr>
+<tr>
+<td>gc()</td>
+<td>建议JVM启动垃圾回收</td>
+</tr>
+<tr>
+<td>exit(status)</td>
+<td>推出JVM，0正常，非零异常</td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//数组复制</span></span><br><span class="line"><span class="comment">//src:原数组</span></span><br><span class="line"><span class="comment">//srcPos:从哪个位置复制</span></span><br><span class="line"><span class="comment">//dest:目标数组</span></span><br><span class="line"><span class="comment">//destPos:目标数组的位置</span></span><br><span class="line"><span class="comment">//length:复制长度</span></span><br><span class="line"><span class="keyword">int</span>[] src = &#123;<span class="number">1</span>,<span class="number">14</span>,<span class="number">45</span>,<span class="number">63</span>,<span class="number">78</span>,<span class="number">9</span>,<span class="number">55</span>,<span class="number">30</span>&#125;;</span><br><span class="line"><span class="keyword">int</span>[] dest = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">8</span>];</span><br><span class="line">System.arraycopy(src,<span class="number">4</span>,dest,<span class="number">2</span>,<span class="number">4</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;src.length;i++)&#123;</span><br><span class="line">    System.out.println(dest[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//结果0 0 78 9 55 30 0 0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//获取系统时间</span></span><br><span class="line"><span class="comment">//可以用来实现计时</span></span><br><span class="line">System.out.println(System.currentTimeMillis());</span><br><span class="line"><span class="comment">//结果：1657338754077</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//退出JVM</span></span><br><span class="line">System.exit(<span class="number">0</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;退出JVM&quot;</span>);</span><br><span class="line"><span class="comment">//不会打印，因为已经退出了</span></span><br></pre></td></tr></table></figure>
+
 
         </div>
 
