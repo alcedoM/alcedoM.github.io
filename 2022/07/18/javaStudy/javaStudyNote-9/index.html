@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Alcedo">
+    
+    <title>
+        
+            java学习笔记-集合框架-上 |
+        
+        Alcedo
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/head.jpg">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"alcedo.work","root":"/","language":"zh-cn","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/head.jpg","favicon":"/images/head.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.jpg","description":"没人喜欢孤独，只是不愿失望"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.1"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                Alcedo
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">java学习笔记-集合框架-上</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/head.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Alcedo</span>
+                        
+                            <span class="author-label">大魔法师</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2022-07-18 10:47:26
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Java学习笔记</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/study-note/">study note</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Java/">Java</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h1><ul>
+<li>集合是对象的容器，实现了对对象常用操作，可实现数组功能</li>
+<li>和数组的区别<ul>
+<li>数组长度固定，集合长度不固定</li>
+<li>数组可以存储基本类型和引用类型，集合只能存储引用类型</li>
+</ul>
+</li>
+</ul>
+<h1 id="Collection-体系集合"><a href="#Collection-体系集合" class="headerlink" title="Collection 体系集合"></a>Collection 体系集合</h1><p><img src="https://s2.loli.net/2022/07/18/zkj9YrwyvgIsQHJ.png" alt="Snipaste_2022-07-18_10-58-07.png"></p>
+<h1 id="Collection父接口"><a href="#Collection父接口" class="headerlink" title="Collection父接口"></a>Collection父接口</h1><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>add(Object o)</td>
+<td>添加一个对象</td>
+</tr>
+<tr>
+<td>addAll(Collection c)</td>
+<td>将一个集合中的所有<br />对象添加到此集合中</td>
+</tr>
+<tr>
+<td>clear()</td>
+<td>清空所以对象</td>
+</tr>
+<tr>
+<td>contains(Object o)</td>
+<td>是否包含某个对象</td>
+</tr>
+<tr>
+<td>equals()</td>
+<td>集合是否相等</td>
+</tr>
+<tr>
+<td>isEmpty()</td>
+<td>是否为空</td>
+</tr>
+<tr>
+<td>remove(Object o)</td>
+<td>删除一个对象</td>
+</tr>
+<tr>
+<td>removeAll(Collection c)</td>
+<td>a.removeAll(b)<br />从a中删除两个集合的交集</td>
+</tr>
+<tr>
+<td>retainAll(Collection c)</td>
+<td>保留两个集合的交集</td>
+</tr>
+<tr>
+<td>size()</td>
+<td>集合中对象个数</td>
+</tr>
+<tr>
+<td>toArray()</td>
+<td>将此集合转换为数组</td>
+</tr>
+</tbody></table>
+<ul>
+<li>迭代器：iterator()<ul>
+<li>hasNext()，判断是否有下一个元素</li>
+<li>next()，获取下一个元素</li>
+<li>remove()，删除该元素</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Collection collection = <span class="keyword">new</span> ArrayList();</span><br><span class="line"><span class="comment">//        （1）添加元素</span></span><br><span class="line">        collection.add(<span class="string">&quot;apple&quot;</span>);</span><br><span class="line">        collection.add(<span class="string">&quot;banana&quot;</span>);</span><br><span class="line">        collection.add(<span class="string">&quot;peach&quot;</span>);</span><br><span class="line">        System.out.println(collection.size());<span class="comment">//3</span></span><br><span class="line">        System.out.println(collection);<span class="comment">//[apple, banana, peach]</span></span><br><span class="line">        </span><br><span class="line">		<span class="comment">//（2）删除元素</span></span><br><span class="line">        collection.remove(<span class="string">&quot;apple&quot;</span>);</span><br><span class="line">        System.out.println(collection);<span class="comment">//[banana, peach]</span></span><br><span class="line"><span class="comment">//        collection.clear();</span></span><br><span class="line"><span class="comment">//        System.out.println(collection.size());</span></span><br><span class="line">        </span><br><span class="line">		<span class="comment">//(3)遍历元素</span></span><br><span class="line">        <span class="comment">//使用增强for</span></span><br><span class="line">        <span class="keyword">for</span> (Object object:collection) &#123;</span><br><span class="line">            System.out.println(object);</span><br><span class="line">        &#125;</span><br><span class="line">		<span class="comment">//使用迭代器（专门用来遍历集合）</span></span><br><span class="line">		<span class="comment">//hasNext();next();remove()</span></span><br><span class="line">        Iterator it = collection.iterator();</span><br><span class="line">        <span class="keyword">while</span> (it.hasNext())&#123;</span><br><span class="line">            String s = (String)it.next();</span><br><span class="line">            System.out.println(s);</span><br><span class="line">            <span class="comment">//不能使用collection的删除方法</span></span><br><span class="line">            it.remove();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(collection.size());</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//（4）判断</span></span><br><span class="line">        System.out.println(collection.contains(<span class="string">&quot;lemon&quot;</span>));<span class="comment">//false</span></span><br><span class="line">        System.out.println(collection.isEmpty());<span class="comment">//true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="List-子接口"><a href="#List-子接口" class="headerlink" title="List 子接口"></a>List 子接口</h1><ul>
+<li>有序，有下标，元素可重复</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>add(index, o)</td>
+<td>指定位置添加</td>
+</tr>
+<tr>
+<td>addAll(index, c)</td>
+<td>指定位置添加整个集合</td>
+</tr>
+<tr>
+<td>get(index)</td>
+<td>或许下标对应的元素</td>
+</tr>
+<tr>
+<td>subList(fromIndex,toIndex)</td>
+<td>返回两个下标之间的子集<br />左闭右开</td>
+</tr>
+<tr>
+<td>indexOf(o)</td>
+<td>返回元素在集合中的下标</td>
+</tr>
+</tbody></table>
+<ul>
+<li>列表迭代器listIterator()<ul>
+<li>add()，添加元素</li>
+<li>hasPrevious()，查询是否有前一个元素</li>
+<li>previous()，获取前一个元素</li>
+<li>nextIndex()，下一个脚标</li>
+<li>previousIndex()，上一个脚标</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//创建集合</span></span><br><span class="line">        List list = <span class="keyword">new</span> ArrayList();</span><br><span class="line">        <span class="comment">//1添加元素</span></span><br><span class="line">        list.add(<span class="string">&quot;手机&quot;</span>);</span><br><span class="line">        list.add(<span class="string">&quot;电脑&quot;</span>);</span><br><span class="line">        list.add(<span class="number">0</span>,<span class="string">&quot;电视&quot;</span>);</span><br><span class="line">        System.out.println(list);</span><br><span class="line">        <span class="comment">//2删除元素</span></span><br><span class="line">        list.remove(<span class="number">1</span>);</span><br><span class="line">        System.out.println(list);</span><br><span class="line">        <span class="comment">//3遍历</span></span><br><span class="line">        <span class="comment">//3.1for</span></span><br><span class="line">        System.out.println(<span class="string">&quot;==============for==============&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;list.size();i++)&#123;</span><br><span class="line">            System.out.println(list.get(i));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//3.2增强for</span></span><br><span class="line">        System.out.println(<span class="string">&quot;==============增强for==============&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span>(Object o:list)&#123;</span><br><span class="line">            System.out.println(o);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//3.3迭代器</span></span><br><span class="line">        System.out.println(<span class="string">&quot;==============迭代器==============&quot;</span>);</span><br><span class="line">        Iterator it = list.iterator();</span><br><span class="line">        <span class="keyword">while</span> (it.hasNext())&#123;</span><br><span class="line">            System.out.println(it.next());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//3.4列表迭代器</span></span><br><span class="line">        ListIterator lit = list.listIterator();</span><br><span class="line">        System.out.println(<span class="string">&quot;==============列表迭代器从前往后==============&quot;</span>);</span><br><span class="line">        <span class="keyword">while</span> (lit.hasNext())&#123;</span><br><span class="line">            System.out.println(lit.nextIndex()+<span class="string">&quot;:&quot;</span>+lit.next());</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;==============列表迭代器从后往前==============&quot;</span>);</span><br><span class="line">        <span class="keyword">while</span> (lit.hasPrevious())&#123;</span><br><span class="line">            System.out.println(lit.previousIndex()+<span class="string">&quot;:&quot;</span>+lit.previous());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//因为一开始指针在开头所以不能直接使用前向查询，本例在一次后向遍历后指针在最后所以可以</span></span><br><span class="line">        <span class="comment">//4判断</span></span><br><span class="line">        System.out.println(list.contains(<span class="string">&quot;手机&quot;</span>));</span><br><span class="line">        System.out.println(list.isEmpty());</span><br><span class="line">        <span class="comment">//5查询</span></span><br><span class="line">        System.out.println(list.indexOf(<span class="string">&quot;电视&quot;</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test3</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List list = <span class="keyword">new</span> ArrayList();</span><br><span class="line">        <span class="comment">//添加元素，自动装箱</span></span><br><span class="line">        list.add(<span class="number">20</span>);</span><br><span class="line">        list.add(<span class="number">30</span>);</span><br><span class="line">        list.add(<span class="number">40</span>);</span><br><span class="line">        list.add(<span class="number">50</span>);</span><br><span class="line">        list.add(<span class="number">60</span>);</span><br><span class="line">        System.out.println(list);</span><br><span class="line">        <span class="comment">//删除元素</span></span><br><span class="line">        list.remove(<span class="keyword">new</span> Integer(<span class="number">20</span>));</span><br><span class="line">        <span class="comment">//list.remove((Object) 20);</span></span><br><span class="line">        System.out.println(list);</span><br><span class="line">        <span class="comment">//子集合,左闭右开</span></span><br><span class="line">        List list2 = list.subList(<span class="number">0</span>,<span class="number">2</span>);</span><br><span class="line">        System.out.println(list2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="List实现类"><a href="#List实现类" class="headerlink" title="List实现类"></a>List实现类</h1><ul>
+<li><strong>ArrayList</strong>：内部利用数组实现，查询快，增删慢，线程不安全</li>
+<li>Vector：内部利用数组实现，查询快，增删慢，线程安全，效率低于ArrayList</li>
+<li>LinkedList：链表结构实现，增删快，查询慢</li>
+</ul>
+<h1 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h1><ul>
+<li><p>内部利用数组实现，查询快，增删慢，线程不安全</p>
+</li>
+<li><p>实现新建对象删除的时候需要重写equals方法</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test4</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ArrayList arrayList = <span class="keyword">new</span> ArrayList();</span><br><span class="line">        <span class="comment">//1.添加元素</span></span><br><span class="line">        Student s1 = <span class="keyword">new</span> Student(<span class="string">&quot;张三&quot;</span>,<span class="number">22</span>);</span><br><span class="line">        Student s2 = <span class="keyword">new</span> Student(<span class="string">&quot;李四&quot;</span>,<span class="number">20</span>);</span><br><span class="line">        Student s3 = <span class="keyword">new</span> Student(<span class="string">&quot;王五&quot;</span>,<span class="number">21</span>);</span><br><span class="line">        arrayList.add(s1);</span><br><span class="line">        arrayList.add(s2);</span><br><span class="line">        arrayList.add(s3);</span><br><span class="line">        System.out.println(arrayList);</span><br><span class="line">        <span class="comment">//2.删除元素</span></span><br><span class="line">        <span class="comment">//arrayList.remove(s1);</span></span><br><span class="line">        arrayList.remove(<span class="keyword">new</span> Student(<span class="string">&quot;张三&quot;</span>,<span class="number">22</span>));</span><br><span class="line">        <span class="comment">//这种方法删除需要重写Student的equals方法</span></span><br><span class="line">        System.out.println(arrayList);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//3.遍历元素</span></span><br><span class="line">        <span class="comment">//迭代器</span></span><br><span class="line">        Iterator it = arrayList.iterator();</span><br><span class="line">        <span class="keyword">while</span> (it.hasNext())&#123;</span><br><span class="line">            Student student = (Student) it.next();</span><br><span class="line">            System.out.println(student);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//列表迭代器</span></span><br><span class="line">        <span class="comment">//从前往后</span></span><br><span class="line">        ListIterator lit = arrayList.listIterator();</span><br><span class="line">        <span class="keyword">while</span> (lit.hasNext())&#123;</span><br><span class="line">            Student student = (Student) lit.next();</span><br><span class="line">            System.out.println(arrayList.indexOf(student)+<span class="string">&quot;:&quot;</span>+student);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//从后往前</span></span><br><span class="line">        <span class="keyword">while</span> (lit.hasPrevious())&#123;</span><br><span class="line">            Student student = (Student) lit.previous();</span><br><span class="line">            System.out.println(arrayList.indexOf(student)+<span class="string">&quot;:&quot;</span>+student);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//4.判断</span></span><br><span class="line">        <span class="comment">//contains(); isEmpty();</span></span><br><span class="line">        <span class="comment">//5.查找</span></span><br><span class="line">        System.out.println(arrayList.indexOf(<span class="keyword">new</span> Student(<span class="string">&quot;李四&quot;</span>,<span class="number">20</span>)));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h3><ul>
+<li><p>默认存储容量：DEFAULT_CAPACITY = 10</p>
+<ul>
+<li>添加元素之后的默认容量</li>
+<li>若没有添加任何元素时，容量为零</li>
+</ul>
+</li>
+<li><p>存放元素的数组：elementData</p>
+</li>
+<li><p>实际元素个数：size</p>
+</li>
+<li><p>add()方法</p>
+<ul>
+<li><p><strong>未添加任何元素的时候容量为0，添加第1个容量变为10，添加第11个时容量变为15，之后每次扩容1.5倍</strong></p>
+</li>
+<li><p>```java<br>public boolean add(E e) {</p>
+<pre><code>ensureCapacityInternal(size + 1);  // Increments modCount!!
+elementData[size++] = e;
+return true;
+</code></pre>
+<p>}</p>
+<p>private void ensureCapacityInternal(int minCapacity) {//minCapacity = size+1</p>
+<pre><code>ensureExplicitCapacity(calculateCapacity(elementData, minCapacity));
+</code></pre>
+<p>}</p>
+<p>private static int calculateCapacity(Object[] elementData, int minCapacity){</p>
+<pre><code>if (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) &#123;
+    return Math.max(DEFAULT_CAPACITY, minCapacity);
+    //DEFAULT_CAPACITY=10 , minCapacity=size+1,新建的时候=1
+&#125;
+return minCapacity;
+//所以只要元素个数小于10的时候容量为10，超过了10的时候就每次加1
+</code></pre>
+<p>}</p>
+<p>private void ensureExplicitCapacity(int minCapacity) {</p>
+<pre><code>modCount++;
+// overflow-conscious code
+if (minCapacity - elementData.length &gt; 0)
+    grow(minCapacity);
+</code></pre>
+<p>}</p>
+<p>//数组扩容方法<br>private void grow(int minCapacity) {</p>
+<pre><code>// overflow-conscious code
+int oldCapacity = elementData.length;
+int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);
+if (newCapacity - minCapacity &lt; 0)
+    newCapacity = minCapacity;
+if (newCapacity - MAX_ARRAY_SIZE &gt; 0)//MAX_ARRAY_SIZE=2147483639
+    newCapacity = hugeCapacity(minCapacity);
+// minCapacity is usually close to size, so this is a win:
+elementData = Arrays.copyOf(elementData, newCapacity);
+</code></pre>
+<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># Vector</span><br><span class="line"></span><br><span class="line">- 内部利用数组实现，查询快，增删慢，线程安全，效率低于ArrayList</span><br><span class="line">- 用的不多</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;java</span><br><span class="line">public class test5 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Vector vector &#x3D; new Vector();</span><br><span class="line">        &#x2F;&#x2F;1.添加元素</span><br><span class="line">        vector.add(&quot;a&quot;);</span><br><span class="line">        vector.add(&quot;b&quot;);</span><br><span class="line">        vector.add(&quot;c&quot;);</span><br><span class="line">        vector.add(&quot;d&quot;);</span><br><span class="line">        &#x2F;&#x2F;2.删除元素</span><br><span class="line">        vector.remove(2);</span><br><span class="line">        &#x2F;&#x2F;3.遍历元素</span><br><span class="line">        &#x2F;&#x2F;枚举器</span><br><span class="line">        Enumeration En &#x3D; vector.elements();</span><br><span class="line">        while (En.hasMoreElements())&#123;</span><br><span class="line">            String s &#x3D; (String) En.nextElement();</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;迭代器，列表迭代器都可</span><br><span class="line">        &#x2F;&#x2F;4.判断</span><br><span class="line">        &#x2F;&#x2F;contains(); isEmpty();</span><br><span class="line">        &#x2F;&#x2F;5.其他方法</span><br><span class="line">        &#x2F;&#x2F;firstElement(); lastElement(); elementAt();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h1 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h1><ul>
+<li><p>链表结构实现，增删快，查询慢</p>
+</li>
+<li><p>存储结构：双向链表</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test6</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        LinkedList linkedList = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        <span class="comment">//1.添加元素</span></span><br><span class="line">        Student s1 = <span class="keyword">new</span> Student(<span class="string">&quot;张三&quot;</span>,<span class="number">22</span>);</span><br><span class="line">        Student s2 = <span class="keyword">new</span> Student(<span class="string">&quot;李四&quot;</span>,<span class="number">20</span>);</span><br><span class="line">        Student s3 = <span class="keyword">new</span> Student(<span class="string">&quot;王五&quot;</span>,<span class="number">21</span>);</span><br><span class="line">        linkedList.add(s1);</span><br><span class="line">        linkedList.add(s2);</span><br><span class="line">        linkedList.add(s3);</span><br><span class="line">        System.out.println(linkedList);</span><br><span class="line">        <span class="comment">//2.删除元素</span></span><br><span class="line">        <span class="comment">//linkedList.remove(s2);</span></span><br><span class="line">        <span class="comment">//System.out.println(linkedList);</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//3.遍历元素</span></span><br><span class="line">        <span class="comment">//for,增强for,迭代器,列表迭代器</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//4.判断</span></span><br><span class="line">        <span class="comment">//contains(); isEmpty();</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//5.获取</span></span><br><span class="line">        <span class="comment">//indexOf();</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="源码分析-1"><a href="#源码分析-1" class="headerlink" title="源码分析"></a>源码分析</h3><ul>
+<li>size: 集合大小</li>
+<li>first：链表头</li>
+<li>last：链表尾</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span> </span>&#123;</span><br><span class="line">    linkLast(e);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">linkLast</span><span class="params">(E e)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> Node&lt;E&gt; l = last;</span><br><span class="line">    <span class="keyword">final</span> Node&lt;E&gt; newNode = <span class="keyword">new</span> Node&lt;&gt;(l, e, <span class="keyword">null</span>);</span><br><span class="line">    last = newNode;</span><br><span class="line">    <span class="keyword">if</span> (l == <span class="keyword">null</span>)</span><br><span class="line">        first = newNode;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        l.next = newNode;</span><br><span class="line">    size++;</span><br><span class="line">    modCount++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    E item;</span><br><span class="line">    Node&lt;E&gt; next;</span><br><span class="line">    Node&lt;E&gt; prev;</span><br><span class="line"></span><br><span class="line">    Node(Node&lt;E&gt; prev, E element, Node&lt;E&gt; next) &#123;</span><br><span class="line">        <span class="keyword">this</span>.item = element;</span><br><span class="line">        <span class="keyword">this</span>.next = next;</span><br><span class="line">        <span class="keyword">this</span>.prev = prev;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：java学习笔记-集合框架-上</li>
+        <li>本文作者：Alcedo</li>
+        <li>创建时间：2022-07-18 10:47:26</li>
+        <li>
+            本文链接：https://alcedo.work/2022/07/18/javaStudy/javaStudyNote-9/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/07/19/javaStudy/javaStudyNote-10/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">java学习笔记-泛型</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/07/01/javaStudy/javaStudyNote-8/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">java学习笔记-常用类</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script 
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script >
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: '4Mhr8g94eF9FSB2KV5jSswEi-gzGzoHsz',
+                    appKey: 'p9k3BVGxo8dDWMAO5qxtlgfd',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '说点什么吧~',
+                    lang: 'zh-cn'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'Alcedo';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('false') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Alcedo</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.1</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E5%90%88"><span class="nav-text">集合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Collection-%E4%BD%93%E7%B3%BB%E9%9B%86%E5%90%88"><span class="nav-text">Collection 体系集合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Collection%E7%88%B6%E6%8E%A5%E5%8F%A3"><span class="nav-text">Collection父接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#List-%E5%AD%90%E6%8E%A5%E5%8F%A3"><span class="nav-text">List 子接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#List%E5%AE%9E%E7%8E%B0%E7%B1%BB"><span class="nav-text">List实现类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ArrayList"><span class="nav-text">ArrayList</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90"><span class="nav-text">源码分析</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LinkedList"><span class="nav-text">LinkedList</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90-1"><span class="nav-text">源码分析</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts">
+    
+        <script src="/js/left-side-toggle.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script>
+    
+</div>
+
+
+
+</body>
+</html>
