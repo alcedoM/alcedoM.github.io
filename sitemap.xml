@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://alcedo.work/2023/04/25/javaStudy/awtStudyNote-1/</loc>
+    
+    <lastmod>2023-04-25</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://alcedo.work/2022/07/18/javaStudy/javaStudyNote-9/</loc>
     
     <lastmod>2022-07-19</lastmod>
@@ -250,6 +257,13 @@
   
   <url>
     <loc>http://alcedo.work/tags/machine-learning/</loc>
+    <lastmod>2023-04-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://alcedo.work/tags/awt/</loc>
     <lastmod>2023-04-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
