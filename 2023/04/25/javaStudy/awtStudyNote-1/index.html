@@ -9,7 +9,7 @@
     
     <title>
         
-            java-awt学习笔记-布局管理器 |
+            javaGUI学习笔记-awt |
         
         Alcedo
     </title>
@@ -160,7 +160,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">java-awt学习笔记-布局管理器</span>
+            <span class="title-hover-animation">javaGUI学习笔记-awt</span>
         </div>
 
         
@@ -225,24 +225,320 @@
         
 
         <div class="article-content markdown-body">
-            <ul>
-<li><h2 id="1-AWT继承体系"><a href="#1-AWT继承体系" class="headerlink" title="1.AWT继承体系"></a>1.AWT继承体系</h2><p>所有和 AWT 编程相关的类都放在 java.awt 包以及它的子包中， AWT 编程中有两个基类 :Component和 MenuComponent。</p>
-<ul>
-<li>Component：代表一个能以图形化方式显示出来，并可与用户交互的对象，例如 Button 代表一个按钮，TextField 代表 一个文本框等；</li>
-<li>MenuComponent：则代表图形界面的菜单组件，包括 MenuBar (菜单条)、 Menultem (菜单项)等子类。</li>
+            <h1 id="1-AWT简介"><a href="#1-AWT简介" class="headerlink" title="1.AWT简介"></a>1.AWT简介</h1><p>​    当 JDK 1.0发布时， Sun 提供了 一套基本的GUI类库，这个GUI类库希望可以在所有平台下都能运行 ， 这套基本类库被称为”抽象窗口工具集 CAbstract Window Toolkit )”，它为Java应用程序提供了基本的图形组件 。 AWT是窗口框架，它从不同平台的窗口系统中抽取出共同组件 ， 当程序运行时，将这些组件的创建和动作委托给程序所在的运行平台 。 简而言之 ，当使用 AWT 编写图形界面应用 时， 程序仅指定了界面组件的位置和行为，并未提供真正的实现，JVM调用操作系统本地的图形界面来创建和平台 一致的对等体 。</p>
+<p>​    使用AWT创建的图形界面应用和所在的运行平台有相同的界面风格 ， 比如在 Windows 操作系统上，它就表现出 Windows 风格 ; 在 UNIX 操作系统上，它就表现出UNIX 风格 。 Sun 希望采用这种方式来实现 “ Write Once, Run Anywhere “ 的目标 。</p>
+<h1 id="2-Container容器"><a href="#2-Container容器" class="headerlink" title="2.Container容器"></a>2.Container容器</h1><h2 id="容器类型"><a href="#容器类型" class="headerlink" title="容器类型"></a>容器类型</h2><ul>
+<li>Winow是<strong>可以独立存在</strong>的顶级窗口,默认使用BorderLayout管理其内部组件布局;</li>
+<li>Panel可以容纳其他组件，但<strong>不能独立存在</strong>，它必须内嵌其他容器中使用，默认使用FlowLayout管理其内部组件布局；</li>
+<li>ScrollPane 是 一个带滚动条的容器，它也<strong>不能独立存在</strong>，默认使用 BorderLayout 管理其内部组件布局；</li>
 </ul>
-<p>其中 Container 是一种特殊的 Component，它代表一种容器，可以盛装普通的 Component。</p>
-<p>AWT中还有一个非常重要的接口叫LayoutManager ，如果一个容器中有多个组件，那么容器就需要使用LayoutManager来管理这些组件的布局方式。</p>
+<h2 id="常见API"><a href="#常见API" class="headerlink" title="常见API"></a>常见API</h2><p>Component作为基类，提供了如下常用的方法来设置组件的大小、位置、可见性等。</p>
+<table>
+<thead>
+<tr>
+<th>方法签名</th>
+<th>方法功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>setLocation(int x, int y)</td>
+<td>设置组件的位置。</td>
+</tr>
+<tr>
+<td>setSize(int width, int height)</td>
+<td>设置组件的大小。</td>
+</tr>
+<tr>
+<td>setBounds(int x, int y, int width, int height)</td>
+<td>同时设置组件的位置、大小。</td>
+</tr>
+<tr>
+<td>setVisible(Boolean b):</td>
+<td>设置该组件的可见性。</td>
+</tr>
+</tbody></table>
+<p>Container作为容器根类，提供了如下方法来访问容器中的组件</p>
+<table>
+<thead>
+<tr>
+<th>方法签名</th>
+<th>方法功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Component add(Component comp)</td>
+<td>向容器中添加其他组件 (该组件既可以是普通组件，也可以 是容器) ， 并返回被添加的组件 。</td>
+</tr>
+<tr>
+<td>Component getComponentAt(int x, int y):</td>
+<td>返回指定点的组件 。</td>
+</tr>
+<tr>
+<td>int getComponentCount():</td>
+<td>返回该容器内组件的数量 。</td>
+</tr>
+<tr>
+<td>Component[] getComponents():</td>
+<td>返回该容器内的所有组件 。</td>
+</tr>
+</tbody></table>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestPanel</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//1.创建Frame容器对象</span></span><br><span class="line">        Frame frame = <span class="keyword">new</span> Frame(<span class="string">&quot;测试Panel&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//2.创建Panel容器对象</span></span><br><span class="line">        Panel p = <span class="keyword">new</span> Panel();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//3.往Panel容器中添加组件</span></span><br><span class="line">        p.add(<span class="keyword">new</span> TextField(<span class="string">&quot;测试文本&quot;</span>));</span><br><span class="line">        p.add(<span class="keyword">new</span> Button(<span class="string">&quot;测试按钮&quot;</span>));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//4.把Panel添加到Frame中</span></span><br><span class="line">        frame.add(p);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//5.设置Frame的位置和大小或者设置Frame为最佳大小，两个二选一</span></span><br><span class="line">        frame.setBounds(<span class="number">200</span>,<span class="number">200</span>,<span class="number">400</span>,<span class="number">300</span>);</span><br><span class="line">        <span class="comment">//frame.pack();</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//6.设置Frame可见</span></span><br><span class="line">        frame.setVisible(<span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>中文可能出现乱码，idea中File&gt;Settings&gt;Editor&gt;File Encodings&gt;Globle Encoding 改为GBK</li>
+<li>或者右上角build右侧的下拉菜单，Edit Configuration &gt; VM options 中填写<code>-Dfile.encoding=gbk</code></li>
+</ul>
+<h1 id="3-布局管理"><a href="#3-布局管理" class="headerlink" title="3.布局管理"></a>3.布局管理</h1><ul>
+<li>使用<code>setLayout(new xxxLayout())</code>来给容器设置布局</li>
+</ul>
+<h2 id="FlowLayout"><a href="#FlowLayout" class="headerlink" title="FlowLayout"></a>FlowLayout</h2><ul>
+<li>在 FlowLayout 布局管理器 中，组件像水流一样向某方向流动 (排列) ，遇到障碍(边界)就折回，重头开始排列 。在默认情况下， FlowLayout 布局管理器从左向右排列所有组件，遇到边界就会折回下一行重新开始。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>构造方法</th>
+<th>方法功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FlowLayout()</td>
+<td>使用默认 的对齐方式及默认的垂直间距、水平间距创建 FlowLayout 布局管理器。</td>
+</tr>
+<tr>
+<td>FlowLayout(int align)</td>
+<td>使用指定的对齐方式及默认的垂直间距、水平间距创建 FlowLayout 布局管理器。</td>
+</tr>
+<tr>
+<td>FlowLayout(int align,int hgap,int vgap)</td>
+<td>使用指定的对齐方式及指定的垂直问距、水平间距创建FlowLayout 布局管理器。</td>
+</tr>
+</tbody></table>
+<ul>
+<li>align 为对齐方式可以使用：FlowLayout. LEFT 、 FlowLayout. CENTER 、 FlowLayout. RIGHT </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FlowLayoutDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//1.创建Frame对象</span></span><br><span class="line">        Frame frame = <span class="keyword">new</span> Frame(<span class="string">&quot;这里测试FlowLayout&quot;</span>);</span><br><span class="line">        <span class="comment">//2.修改Frame容器的布局管理器为FlowLayout</span></span><br><span class="line">        frame.setLayout(<span class="keyword">new</span> FlowLayout(FlowLayout.LEFT,<span class="number">20</span>,<span class="number">20</span>));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//3.往Frame中添加100个button</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">            frame.add(<span class="keyword">new</span> Button(<span class="string">&quot;按钮&quot;</span>+i));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//4.设置Frame为最佳大小</span></span><br><span class="line">        frame.pack();</span><br><span class="line">        <span class="comment">//5.设置Frame可见</span></span><br><span class="line">        frame.setVisible(<span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="BorderLayout"><a href="#BorderLayout" class="headerlink" title="BorderLayout"></a>BorderLayout</h2><ul>
+<li><p>BorderLayout 将容器分为 EAST 、 SOUTH 、 WEST 、 NORTH 、 CENTER五个区域，普通组件可以被放置在这 5 个区域的任意一个中 </p>
+</li>
+<li><p>当改变使用 BorderLayout 的容器大小时， NORTH 、 SOUTH 和 CENTER区域水平调整，而 EAST 、 WEST 和 CENTER 区域垂直调整。使用BorderLayout 有如下两个注意点:</p>
+<ul>
+<li>当向使用 BorderLayout 布局管理器的容器中添加组件时 ， 需要指定要添加到哪个区域中 。 如果没有指定添加到哪个区域中，则默认添加到中间区域中；</li>
+<li>如果向同一个区域中添加多个组件时 ， 后放入的组件会覆盖先放入的组件；</li>
+</ul>
 </li>
 </ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BorderLayoutDemo1</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//1.创建Frame对象</span></span><br><span class="line">        Frame frame = <span class="keyword">new</span> Frame(<span class="string">&quot;这里测试BorderLayout&quot;</span>);</span><br><span class="line">        <span class="comment">//2.指定Frame对象的布局管理器为BorderLayout</span></span><br><span class="line">        frame.setLayout(<span class="keyword">new</span> BorderLayout(<span class="number">30</span>,<span class="number">5</span>));</span><br><span class="line">        <span class="comment">//3.往Frame指定东南西北中各添加一个按钮组件</span></span><br><span class="line">        frame.add(<span class="keyword">new</span> Button(<span class="string">&quot;东侧按钮&quot;</span>), BorderLayout.EAST);</span><br><span class="line">        frame.add(<span class="keyword">new</span> Button(<span class="string">&quot;西侧按钮&quot;</span>), BorderLayout.WEST);</span><br><span class="line">        frame.add(<span class="keyword">new</span> Button(<span class="string">&quot;南侧按钮&quot;</span>), BorderLayout.SOUTH);</span><br><span class="line">        frame.add(<span class="keyword">new</span> Button(<span class="string">&quot;北侧按钮&quot;</span>), BorderLayout.NORTH);</span><br><span class="line">        frame.add(<span class="keyword">new</span> Button(<span class="string">&quot;中间按钮&quot;</span>), BorderLayout.CENTER);</span><br><span class="line">        <span class="comment">//4.设置Frame为最佳大小</span></span><br><span class="line">        frame.pack();</span><br><span class="line">        <span class="comment">//5.设置Frame可见</span></span><br><span class="line">        frame.setVisible(<span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+
+
+<h2 id="GridLayout"><a href="#GridLayout" class="headerlink" title="GridLayout"></a>GridLayout</h2><ul>
+<li>GridLayout 布局管理器将容器分割成纵横线分隔的网格 ， 每个网格所占的区域大小相同。当向使用 GridLayout 布局管理器的容器中添加组件时， 默认从左向右、 从上向下依次添加到每个网格中 。 与 FlowLayout不同的是，放置在 GridLayout 布局管理器中的各组件的大小由组件所处的区域决定(每 个组件将自动占满整个区域) 。    </li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>构造方法</th>
+<th>方法功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GridLayout(int rows,in t cols)</td>
+<td>采用指定的行数、列数，以及默认的横向间距、纵向间距将容器 分割成多个网格</td>
+</tr>
+<tr>
+<td>GridLayout(int rows,int cols,int hgap,int vgap)</td>
+<td>采用指定 的行数、列 数 ，以及指定的横向间距 、 纵向间距将容器分割成多个网格。</td>
+</tr>
+</tbody></table>
+<h2 id="GridBagLayout"><a href="#GridBagLayout" class="headerlink" title="GridBagLayout"></a>GridBagLayout</h2><h2 id="CardLayout"><a href="#CardLayout" class="headerlink" title="CardLayout"></a>CardLayout</h2><ul>
+<li>CardLayout 布局管理器以时间而非空间来管理它里面的组件，它将加入容器的所有组件看成一叠卡片（每个卡片其实就是一个组件），每次只有最上面的那个 Component 才可见。就好像一副扑克牌，它们叠在一起，每次只有最上面的一张扑克牌才可见.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>方法功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CardLayout()</td>
+<td>创建默认的 CardLayout 布局管理器。</td>
+</tr>
+<tr>
+<td>CardLayout(int hgap,int vgap)</td>
+<td>通过指定卡片与容器左右边界的间距 C hgap) 、上下边界 Cvgap) 的间距来创建 CardLayout 布局管理器.</td>
+</tr>
+<tr>
+<td>first(Container target)</td>
+<td>显示target 容器中的第一张卡片.</td>
+</tr>
+<tr>
+<td>last(Container target)</td>
+<td>显示target 容器中的最后一张卡片.</td>
+</tr>
+<tr>
+<td>previous(Container target)</td>
+<td>显示target 容器中的前一张卡片.</td>
+</tr>
+<tr>
+<td>next(Container target)</td>
+<td>显示target 容器中的后一张卡片.</td>
+</tr>
+<tr>
+<td>show(Container taget,String name)</td>
+<td>显 示 target 容器中指定名字的卡片.</td>
+</tr>
+</tbody></table>
+<h2 id="BoxLayout"><a href="#BoxLayout" class="headerlink" title="BoxLayout"></a>BoxLayout</h2><ul>
+<li>为了简化开发，Swing 引入了 一个新的布局管理器 : BoxLayout 。 BoxLayout 可以在垂直和 水平两个方向上摆放 GUI 组件， BoxLayout 提供了如下一个简单的构造器:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>方法功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BoxLayout(Container target, int axis)</td>
+<td>指定创建基于 target 容器的 BoxLayout 布局管理器，该布局管理器里的组件按 axis 方向排列。其中 axis 有 BoxLayout.X_AXIS( 横向)和 BoxLayout.Y _AXIS (纵向〉两个方向。</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>方法功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static Box createHorizontalBox()</td>
+<td>创建一个水平排列组件的 Box 容器 。</td>
+</tr>
+<tr>
+<td>static Box createVerticalBox()</td>
+<td>创建一个垂直排列组件的 Box 容器 。</td>
+</tr>
+</tbody></table>
+<ul>
+<li>用法<code>Box box1 = Box.createHorizontalBox()</code></li>
+</ul>
+<h1 id="4-常见组件"><a href="#4-常见组件" class="headerlink" title="4.常见组件"></a>4.常见组件</h1><h2 id="基础组件"><a href="#基础组件" class="headerlink" title="基础组件"></a>基础组件</h2><table>
+<thead>
+<tr>
+<th>组件名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Button</td>
+<td>Button</td>
+</tr>
+<tr>
+<td>Canvas</td>
+<td>用于绘图的画布</td>
+</tr>
+<tr>
+<td>Checkbox</td>
+<td>复选框组件（也可当做单选框组件使用）</td>
+</tr>
+<tr>
+<td>CheckboxGroup</td>
+<td>用于将多个Checkbox 组件组合成一组， 一组 Checkbox 组件将只有一个可以 被选中 ， 即全部变成单选框组件</td>
+</tr>
+<tr>
+<td>Choice</td>
+<td>下拉选择框</td>
+</tr>
+<tr>
+<td>Frame</td>
+<td>窗口 ， 在 GUI 程序里通过该类创建窗口</td>
+</tr>
+<tr>
+<td>Label</td>
+<td>标签类，用于放置提示性文本</td>
+</tr>
+<tr>
+<td>List</td>
+<td>JU表框组件，可以添加多项条目</td>
+</tr>
+<tr>
+<td>Panel</td>
+<td>不能单独存在基本容器类，必须放到其他容器中</td>
+</tr>
+<tr>
+<td>Scrollbar</td>
+<td>滑动条组件。如果需要用户输入位于某个范围的值 ， 就可以使用滑动条组件 ，比如调 色板中设置 RGB 的三个值所用的滑动条。当创建一个滑动条时，必须指定它的方向、初始值、 滑块的大小、最小值和最大值。</td>
+</tr>
+<tr>
+<td>ScrollPane</td>
+<td>带水平及垂直滚动条的容器组件</td>
+</tr>
+<tr>
+<td>TextArea</td>
+<td>多行文本域</td>
+</tr>
+<tr>
+<td>TextField</td>
+<td>单行文本框</td>
+</tr>
+</tbody></table>
+<p>这些 AWT 组件的用法比较简单，可以查阅 API 文档来获取它们各自的构方法、成员方法等详细信息。</p>
+<ul>
+<li>示例</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BasicComponentDemo</span> </span>&#123;</span><br><span class="line">    Frame frame = <span class="keyword">new</span> Frame(<span class="string">&quot;这里测试基本组件&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//定义一个按钮</span></span><br><span class="line">    Button ok = <span class="keyword">new</span> Button(<span class="string">&quot;确认&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//定义一个复选框组</span></span><br><span class="line">    CheckboxGroup cbg = <span class="keyword">new</span> CheckboxGroup();</span><br><span class="line">    <span class="comment">//定义一个单选框，初始处于被选中状态,并添加到cbg组中</span></span><br><span class="line">    Checkbox male = <span class="keyword">new</span> Checkbox(<span class="string">&quot;男&quot;</span>, cbg, <span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//定义一个单选框，初始处于未被选中状态,并添加到cbg组中</span></span><br><span class="line">    Checkbox female = <span class="keyword">new</span> Checkbox(<span class="string">&quot;女&quot;</span>, cbg, <span class="keyword">false</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//定义一个复选框，初始处于未被选中状态</span></span><br><span class="line">    Checkbox married = <span class="keyword">new</span> Checkbox(<span class="string">&quot;是否已婚？&quot;</span>, <span class="keyword">false</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//定义一个下拉选择框</span></span><br><span class="line">    Choice colorChooser = <span class="keyword">new</span> Choice();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//定义一个列表选择框</span></span><br><span class="line">    List colorList = <span class="keyword">new</span> List(<span class="number">6</span>, <span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//定义一个5行，20列的多行文本域</span></span><br><span class="line">    TextArea ta = <span class="keyword">new</span> TextArea(<span class="number">5</span>, <span class="number">20</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//定义一个50列的单行文本域</span></span><br><span class="line">    TextField tf = <span class="keyword">new</span> TextField(<span class="number">50</span>);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//往下拉选择框中添加内容</span></span><br><span class="line">        colorChooser.add(<span class="string">&quot;红色&quot;</span>);</span><br><span class="line">        colorChooser.add(<span class="string">&quot;绿色&quot;</span>);</span><br><span class="line">        colorChooser.add(<span class="string">&quot;蓝色&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//往列表选择框中添加内容</span></span><br><span class="line">        colorList.add(<span class="string">&quot;红色&quot;</span>);</span><br><span class="line">        colorList.add(<span class="string">&quot;绿色&quot;</span>);</span><br><span class="line">        colorList.add(<span class="string">&quot;蓝色&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建一个装载按钮和文本框的Panel容器</span></span><br><span class="line">        Panel bottom = <span class="keyword">new</span> Panel();</span><br><span class="line">        bottom.add(tf);</span><br><span class="line">        bottom.add(ok);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//把bottom添加到Frame的底部</span></span><br><span class="line">        frame.add(bottom,BorderLayout.SOUTH);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建一个Panel容器，装载下拉选择框，单选框和复选框</span></span><br><span class="line">        Panel checkPanel = <span class="keyword">new</span> Panel();</span><br><span class="line">        checkPanel.add(colorChooser);</span><br><span class="line">        checkPanel.add(male);</span><br><span class="line">        checkPanel.add(female);</span><br><span class="line">        checkPanel.add(married);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建一个垂直排列的Box容器，装载 多行文本域和checkPanel</span></span><br><span class="line">        Box topLeft = Box.createVerticalBox();</span><br><span class="line">        topLeft.add(ta);</span><br><span class="line">        topLeft.add(checkPanel);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建一个水平排列的Box容器，装载topLeft和列表选择框</span></span><br><span class="line">        Box top = Box.createHorizontalBox();</span><br><span class="line">        top.add(topLeft);</span><br><span class="line">        top.add(colorList);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//将top添加到frame的中间区域</span></span><br><span class="line">        frame.add(top);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//设置frame最佳大小并可见</span></span><br><span class="line">        frame.pack();</span><br><span class="line">        frame.setVisible(<span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">new</span> BasicComponentDemo().init();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Dialog组件"><a href="#Dialog组件" class="headerlink" title="Dialog组件"></a>Dialog组件</h2><p>Dialog 是 Window 类的子类，是 一个容器类，属于特殊组件 。 对话框是可以独立存在的顶级窗口， 因此用法与普通窗口的用法几乎完全一样，但是使用对话框需要注意下面两点：</p>
+<ul>
+<li>对话框通常依赖于其他窗口，就是通常需要有一个父窗口；</li>
+<li>对话框有非模式(non-modal)和模式(modal)两种，当某个模式对话框被打开后，该模式对话框总是位于它的父窗口之上，在模式对话框被关闭之前，父窗口无法获得焦点。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>方法功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Dialog(Frame owner, String title, boolean modal)</td>
+<td>创建一个对话框对象：<br/>owner:当前对话框的父窗口<br/>title:当前对话框的标题<br/>modal：当前对话框是否是模式对话框，true/false</td>
+</tr>
+</tbody></table>
+<h2 id="FileDialog组件"><a href="#FileDialog组件" class="headerlink" title="FileDialog组件"></a>FileDialog组件</h2><p>Dialog 类还有 一个子类 : FileDialog ，它代表一个文件对话框，用于打开或者保存 文件,需要注意的是FileDialog无法指定模态或者非模态，这是因为 FileDialog 依赖于运行平台的实现，如果运行平台的文件对话框是模态的，那么 FileDialog 也是模态的;否则就是非模态的 。</p>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>方法功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FileDialog(Frame parent, String title, int mode)</td>
+<td>创建一个文件对话框：<br/>parent:指定父窗口<br/>title:对话框标题<br/>mode:文件对话框类型，如果指定为FileDialog.load，用于打开文件，如果指定为FileDialog.SAVE,用于保存文件</td>
+</tr>
+<tr>
+<td>String getDirectory()</td>
+<td>获取被打开或保存文件的绝对路径</td>
+</tr>
+<tr>
+<td>String getFile()</td>
+<td>获取被打开或保存文件的文件名</td>
+</tr>
+</tbody></table>
+<h1 id="5-事件处理"><a href="#5-事件处理" class="headerlink" title="5 事件处理"></a>5 事件处理</h1>
         </div>
 
         
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>Post title：java-awt学习笔记-布局管理器</li>
+        <li>Post title：javaGUI学习笔记-awt</li>
         <li>Post author：Alcedo</li>
         <li>Create time：2023-04-25 16:25:42</li>
         <li>
@@ -264,10 +560,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/07/19/javaStudy/javaStudyNote-10/"
+                           href="/2023/04/25/javaStudy/awtStudyNote-2/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">java学习笔记-泛型</span>
+                                <span class="post-nav-title-item">java-awt学习笔记-常见组件</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -459,7 +755,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-AWT%E7%BB%A7%E6%89%BF%E4%BD%93%E7%B3%BB"><span class="nav-text">1.AWT继承体系</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-AWT%E7%AE%80%E4%BB%8B"><span class="nav-text">1.AWT简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Container%E5%AE%B9%E5%99%A8"><span class="nav-text">2.Container容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8%E7%B1%BB%E5%9E%8B"><span class="nav-text">容器类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81API"><span class="nav-text">常见API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-text">示例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86"><span class="nav-text">3.布局管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#FlowLayout"><span class="nav-text">FlowLayout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BorderLayout"><span class="nav-text">BorderLayout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GridLayout"><span class="nav-text">GridLayout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GridBagLayout"><span class="nav-text">GridBagLayout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CardLayout"><span class="nav-text">CardLayout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BoxLayout"><span class="nav-text">BoxLayout</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%B8%B8%E8%A7%81%E7%BB%84%E4%BB%B6"><span class="nav-text">4.常见组件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6"><span class="nav-text">基础组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dialog%E7%BB%84%E4%BB%B6"><span class="nav-text">Dialog组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FileDialog%E7%BB%84%E4%BB%B6"><span class="nav-text">FileDialog组件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86"><span class="nav-text">5 事件处理</span></a></li></ol>
     </div>
 </div>
         </aside>
