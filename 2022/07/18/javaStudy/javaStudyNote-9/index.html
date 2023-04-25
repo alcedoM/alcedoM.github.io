@@ -198,11 +198,11 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/study-note/">study note</a>&nbsp;
+                        <a href="/tags/Java/">Java</a>&nbsp;
                     </li>
                 
                     <li>
-                        | <a href="/tags/Java/">Java</a>&nbsp;
+                        | <a href="/tags/study-note/">study note</a>&nbsp;
                     </li>
                 
             </ul>
@@ -363,50 +363,16 @@
 </li>
 <li><p>add()方法</p>
 <ul>
-<li><p><strong>未添加任何元素的时候容量为0，添加第1个容量变为10，添加第11个时容量变为15，之后每次扩容1.5倍</strong></p>
-</li>
-<li><p>```java<br>public boolean add(E e) {</p>
-<pre><code>ensureCapacityInternal(size + 1);  // Increments modCount!!
-elementData[size++] = e;
-return true;
-</code></pre>
-<p>}</p>
-<p>private void ensureCapacityInternal(int minCapacity) {//minCapacity = size+1</p>
-<pre><code>ensureExplicitCapacity(calculateCapacity(elementData, minCapacity));
-</code></pre>
-<p>}</p>
-<p>private static int calculateCapacity(Object[] elementData, int minCapacity){</p>
-<pre><code>if (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) &#123;
-    return Math.max(DEFAULT_CAPACITY, minCapacity);
-    //DEFAULT_CAPACITY=10 , minCapacity=size+1,新建的时候=1
-&#125;
-return minCapacity;
-//所以只要元素个数小于10的时候容量为10，超过了10的时候就每次加1
-</code></pre>
-<p>}</p>
-<p>private void ensureExplicitCapacity(int minCapacity) {</p>
-<pre><code>modCount++;
-// overflow-conscious code
-if (minCapacity - elementData.length &gt; 0)
-    grow(minCapacity);
-</code></pre>
-<p>}</p>
-<p>//数组扩容方法<br>private void grow(int minCapacity) {</p>
-<pre><code>// overflow-conscious code
-int oldCapacity = elementData.length;
-int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);
-if (newCapacity - minCapacity &lt; 0)
-    newCapacity = minCapacity;
-if (newCapacity - MAX_ARRAY_SIZE &gt; 0)//MAX_ARRAY_SIZE=2147483639
-    newCapacity = hugeCapacity(minCapacity);
-// minCapacity is usually close to size, so this is a win:
-elementData = Arrays.copyOf(elementData, newCapacity);
-</code></pre>
-<p>}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># Vector</span><br><span class="line"></span><br><span class="line">- 内部利用数组实现，查询快，增删慢，线程安全，效率低于ArrayList</span><br><span class="line">- 用的不多</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;java</span><br><span class="line">public class test5 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Vector vector &#x3D; new Vector();</span><br><span class="line">        &#x2F;&#x2F;1.添加元素</span><br><span class="line">        vector.add(&quot;a&quot;);</span><br><span class="line">        vector.add(&quot;b&quot;);</span><br><span class="line">        vector.add(&quot;c&quot;);</span><br><span class="line">        vector.add(&quot;d&quot;);</span><br><span class="line">        &#x2F;&#x2F;2.删除元素</span><br><span class="line">        vector.remove(2);</span><br><span class="line">        &#x2F;&#x2F;3.遍历元素</span><br><span class="line">        &#x2F;&#x2F;枚举器</span><br><span class="line">        Enumeration En &#x3D; vector.elements();</span><br><span class="line">        while (En.hasMoreElements())&#123;</span><br><span class="line">            String s &#x3D; (String) En.nextElement();</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;迭代器，列表迭代器都可</span><br><span class="line">        &#x2F;&#x2F;4.判断</span><br><span class="line">        &#x2F;&#x2F;contains(); isEmpty();</span><br><span class="line">        &#x2F;&#x2F;5.其他方法</span><br><span class="line">        &#x2F;&#x2F;firstElement(); lastElement(); elementAt();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><strong>未添加任何元素的时候容量为0，添加第1个容量变为10，添加第11个时容量变为15，之后每次扩容1.5倍</strong></li>
 </ul>
-</li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span> </span>&#123;</span><br><span class="line">    ensureCapacityInternal(size + <span class="number">1</span>);  <span class="comment">// Increments modCount!!</span></span><br><span class="line">    elementData[size++] = e;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ensureCapacityInternal</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;<span class="comment">//minCapacity = size+1</span></span><br><span class="line">    ensureExplicitCapacity(calculateCapacity(elementData, minCapacity));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">calculateCapacity</span><span class="params">(Object[] elementData, <span class="keyword">int</span> minCapacity)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) &#123;</span><br><span class="line">        <span class="keyword">return</span> Math.max(DEFAULT_CAPACITY, minCapacity);</span><br><span class="line">        <span class="comment">//DEFAULT_CAPACITY=10 , minCapacity=size+1,新建的时候=1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> minCapacity;</span><br><span class="line">    <span class="comment">//所以只要元素个数小于10的时候容量为10，超过了10的时候就每次加1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ensureExplicitCapacity</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</span><br><span class="line">    modCount++;</span><br><span class="line">    <span class="comment">// overflow-conscious code</span></span><br><span class="line">    <span class="keyword">if</span> (minCapacity - elementData.length &gt; <span class="number">0</span>)</span><br><span class="line">        grow(minCapacity);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//数组扩容方法</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">grow</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// overflow-conscious code</span></span><br><span class="line">    <span class="keyword">int</span> oldCapacity = elementData.length;</span><br><span class="line">    <span class="keyword">int</span> newCapacity = oldCapacity + (oldCapacity &gt;&gt; <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span> (newCapacity - minCapacity &lt; <span class="number">0</span>)</span><br><span class="line">        newCapacity = minCapacity;</span><br><span class="line">    <span class="keyword">if</span> (newCapacity - MAX_ARRAY_SIZE &gt; <span class="number">0</span>)<span class="comment">//MAX_ARRAY_SIZE=2147483639</span></span><br><span class="line">        newCapacity = hugeCapacity(minCapacity);</span><br><span class="line">    <span class="comment">// minCapacity is usually close to size, so this is a win:</span></span><br><span class="line">    elementData = Arrays.copyOf(elementData, newCapacity);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
+<h1 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h1><ul>
+<li>内部利用数组实现，查询快，增删慢，线程安全，效率低于ArrayList</li>
+<li>用的不多</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test5</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Vector vector = <span class="keyword">new</span> Vector();</span><br><span class="line">        <span class="comment">//1.添加元素</span></span><br><span class="line">        vector.add(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">        vector.add(<span class="string">&quot;b&quot;</span>);</span><br><span class="line">        vector.add(<span class="string">&quot;c&quot;</span>);</span><br><span class="line">        vector.add(<span class="string">&quot;d&quot;</span>);</span><br><span class="line">        <span class="comment">//2.删除元素</span></span><br><span class="line">        vector.remove(<span class="number">2</span>);</span><br><span class="line">        <span class="comment">//3.遍历元素</span></span><br><span class="line">        <span class="comment">//枚举器</span></span><br><span class="line">        Enumeration En = vector.elements();</span><br><span class="line">        <span class="keyword">while</span> (En.hasMoreElements())&#123;</span><br><span class="line">            String s = (String) En.nextElement();</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//迭代器，列表迭代器都可</span></span><br><span class="line">        <span class="comment">//4.判断</span></span><br><span class="line">        <span class="comment">//contains(); isEmpty();</span></span><br><span class="line">        <span class="comment">//5.其他方法</span></span><br><span class="line">        <span class="comment">//firstElement(); lastElement(); elementAt();</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h1 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h1><ul>
 <li><p>链表结构实现，增删快，查询慢</p>
 </li>
@@ -427,14 +393,14 @@ elementData = Arrays.copyOf(elementData, newCapacity);
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：java学习笔记-集合框架-上</li>
-        <li>本文作者：Alcedo</li>
-        <li>创建时间：2022-07-18 10:47:26</li>
+        <li>Post title：java学习笔记-集合框架-上</li>
+        <li>Post author：Alcedo</li>
+        <li>Create time：2022-07-18 10:47:26</li>
         <li>
-            本文链接：https://alcedo.work/2022/07/18/javaStudy/javaStudyNote-9/
+            Post link：https://alcedo.work/2022/07/18/javaStudy/javaStudyNote-9/
         </li>
         <li>
-            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
         </li>
     </ul>
 </div>
@@ -455,7 +421,7 @@ elementData = Arrays.copyOf(elementData, newCapacity);
                             </span>
                             <span class="title flex-center">
                                 <span class="post-nav-title-item">java学习笔记-泛型</span>
-                                <span class="post-nav-item">上一篇</span>
+                                <span class="post-nav-item">Prev posts</span>
                             </span>
                         </a>
                     </div>
@@ -468,7 +434,7 @@ elementData = Arrays.copyOf(elementData, newCapacity);
                         >
                             <span class="title flex-center">
                                 <span class="post-nav-title-item">java学习笔记-常用类</span>
-                                <span class="post-nav-item">下一篇</span>
+                                <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex-center">
                               <i class="fas fa-chevron-right"></i>
@@ -484,7 +450,7 @@ elementData = Arrays.copyOf(elementData, newCapacity);
                 <div class="comments-container">
     <div id="comment-anchor"></div>
     <div class="comment-area-title">
-        <i class="fas fa-comments">&nbsp;评论</i>
+        <i class="fas fa-comments">&nbsp;Comments</i>
     </div>
     
 
@@ -576,11 +542,11 @@ elementData = Arrays.copyOf(elementData, newCapacity);
             
               <span>2021</span>&nbsp;-&nbsp;
             
-            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Alcedo</a>
+            2023&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Alcedo</a>
         </div>
         
         <div class="theme-info info-item">
-            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.1</a>
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.1</a>
         </div>
         
     </div>
@@ -659,7 +625,7 @@ elementData = Arrays.copyOf(elementData, newCapacity);
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E5%90%88"><span class="nav-text">集合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Collection-%E4%BD%93%E7%B3%BB%E9%9B%86%E5%90%88"><span class="nav-text">Collection 体系集合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Collection%E7%88%B6%E6%8E%A5%E5%8F%A3"><span class="nav-text">Collection父接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#List-%E5%AD%90%E6%8E%A5%E5%8F%A3"><span class="nav-text">List 子接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#List%E5%AE%9E%E7%8E%B0%E7%B1%BB"><span class="nav-text">List实现类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ArrayList"><span class="nav-text">ArrayList</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90"><span class="nav-text">源码分析</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LinkedList"><span class="nav-text">LinkedList</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90-1"><span class="nav-text">源码分析</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E5%90%88"><span class="nav-text">集合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Collection-%E4%BD%93%E7%B3%BB%E9%9B%86%E5%90%88"><span class="nav-text">Collection 体系集合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Collection%E7%88%B6%E6%8E%A5%E5%8F%A3"><span class="nav-text">Collection父接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#List-%E5%AD%90%E6%8E%A5%E5%8F%A3"><span class="nav-text">List 子接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#List%E5%AE%9E%E7%8E%B0%E7%B1%BB"><span class="nav-text">List实现类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ArrayList"><span class="nav-text">ArrayList</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90"><span class="nav-text">源码分析</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vector"><span class="nav-text">Vector</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LinkedList"><span class="nav-text">LinkedList</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90-1"><span class="nav-text">源码分析</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
         </aside>
@@ -681,7 +647,7 @@ elementData = Arrays.copyOf(elementData, newCapacity);
                 <input autocomplete="off"
                        autocorrect="off"
                        autocapitalize="off"
-                       placeholder="搜索..."
+                       placeholder="Search..."
                        spellcheck="false"
                        type="search"
                        class="search-input"
