@@ -193,7 +193,7 @@
 
   
   <url>
-    <loc>http://alcedo.work/tags/python/</loc>
+    <loc>http://alcedo.work/tags/Java/</loc>
     <lastmod>2023-07-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -207,20 +207,6 @@
   </url>
   
   <url>
-    <loc>http://alcedo.work/tags/machine-learning/</loc>
-    <lastmod>2023-07-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://alcedo.work/tags/Java/</loc>
-    <lastmod>2023-07-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://alcedo.work/tags/%E8%AF%BE%E8%AE%BE/</loc>
     <lastmod>2023-07-12</lastmod>
     <changefreq>daily</changefreq>
@@ -228,14 +214,14 @@
   </url>
   
   <url>
-    <loc>http://alcedo.work/tags/hexo/</loc>
+    <loc>http://alcedo.work/tags/python/</loc>
     <lastmod>2023-07-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://alcedo.work/tags/awt/</loc>
+    <loc>http://alcedo.work/tags/machine-learning/</loc>
     <lastmod>2023-07-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -278,6 +264,20 @@
   
   <url>
     <loc>http://alcedo.work/tags/%E8%83%A1%E8%A8%80%E4%B9%B1%E8%AF%AD/</loc>
+    <lastmod>2023-07-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://alcedo.work/tags/hexo/</loc>
+    <lastmod>2023-07-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://alcedo.work/tags/awt/</loc>
     <lastmod>2023-07-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
