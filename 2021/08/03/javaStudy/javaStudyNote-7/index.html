@@ -198,11 +198,11 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/Java/">Java</a>&nbsp;
+                        <a href="/tags/study-note/">study note</a>&nbsp;
                     </li>
                 
                     <li>
-                        | <a href="/tags/study-note/">study note</a>&nbsp;
+                        | <a href="/tags/Java/">Java</a>&nbsp;
                     </li>
                 
             </ul>
@@ -234,14 +234,14 @@
 <li><p>捕获异常</p>
 </li>
 <li><p>假设捕获多个异常，范围从小到大Throwable &gt; Error = Exception &gt; ArithmeticException</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Study</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">		<span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> b = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            System.out.print(a/b);</span><br><span class="line">		&#125;<span class="keyword">catch</span>(ArithmeticException ae)&#123;<span class="comment">//catch(想要捕获的异常类型)</span></span><br><span class="line">            System.out.print(<span class="string">&#x27;程序出现异常&#x27;</span>);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            </span><br><span class="line">        &#125;<span class="keyword">catch</span> (Throwable t)&#123;</span><br><span class="line">            </span><br><span class="line">        &#125;<span class="keyword">finally</span>&#123;<span class="comment">//处理善后工作</span></span><br><span class="line">            System.out.print(<span class="string">&#x27;finally&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Study</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String args[])</span>&#123;</span><br><span class="line">		<span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            System.out.print(a/b);</span><br><span class="line">		&#125;<span class="keyword">catch</span>(ArithmeticException ae)&#123;<span class="comment">//catch(想要捕获的异常类型)</span></span><br><span class="line">            System.out.print(<span class="string">&#x27;程序出现异常&#x27;</span>);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            </span><br><span class="line">        &#125;<span class="keyword">catch</span> (Throwable t)&#123;</span><br><span class="line">            </span><br><span class="line">        &#125;<span class="keyword">finally</span>&#123;<span class="comment">//处理善后工作</span></span><br><span class="line">            System.out.print(<span class="string">&#x27;finally&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>主动抛出异常：throws用在方法上向上级抛出异常，throw用在方法中</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Study</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">try</span>&#123;<span class="comment">//try监控区域</span></span><br><span class="line">            Study s = <span class="keyword">new</span> Study();</span><br><span class="line">        	s.test(<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (ArithmeticException e)&#123;</span><br><span class="line">            System.out.print(<span class="string">&quot;b不能为零&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">            System.out.print(<span class="string">&quot;finally&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> <span class="keyword">throws</span> ArithmeticException</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(b==<span class="number">0</span>)&#123;</span><br><span class="line">        	<span class="keyword">throw</span> <span class="keyword">new</span> ArithmeticException();</span><br><span class="line">        	<span class="comment">//主动抛出异常一般在方法中</span></span><br><span class="line">        &#125;</span><br><span class="line">        System.out.print(a/b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Study</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">try</span>&#123;<span class="comment">//try监控区域</span></span><br><span class="line">            <span class="type">Study</span> <span class="variable">s</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Study</span>();</span><br><span class="line">        	s.test(<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (ArithmeticException e)&#123;</span><br><span class="line">            System.out.print(<span class="string">&quot;b不能为零&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">            System.out.print(<span class="string">&quot;finally&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> <span class="keyword">throws</span> ArithmeticException&#123;</span><br><span class="line">        <span class="keyword">if</span>(b==<span class="number">0</span>)&#123;</span><br><span class="line">        	<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">ArithmeticException</span>();</span><br><span class="line">        	<span class="comment">//主动抛出异常一般在方法中</span></span><br><span class="line">        &#125;</span><br><span class="line">        System.out.print(a/b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h1 id="3-自定义异常"><a href="#3-自定义异常" class="headerlink" title="3.自定义异常"></a>3.自定义异常</h1><ul>
 <li>需要继承异常类</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Ex</span> <span class="keyword">extends</span> <span class="title">Exception</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//传递数字&gt;10</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> detail;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Ex</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;</span><br><span class="line">        detail = a;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Ex&#123;&quot;</span> + <span class="string">&quot;detail=&quot;</span> + detail + <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Ex</span> <span class="keyword">extends</span> <span class="title class_">Exception</span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//传递数字&gt;10</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> detail;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Ex</span><span class="params">(<span class="type">int</span> a)</span>&#123;</span><br><span class="line">        detail = a;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Ex&#123;&quot;</span> + <span class="string">&quot;detail=&quot;</span> + detail + <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
         </div>
@@ -250,14 +250,14 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>Post title：java学习笔记-异常</li>
-        <li>Post author：Alcedo</li>
-        <li>Create time：2021-08-03 22:17:21</li>
+        <li>本文标题：java学习笔记-异常</li>
+        <li>本文作者：Alcedo</li>
+        <li>创建时间：2021-08-03 22:17:21</li>
         <li>
-            Post link：https://alcedo.work/2021/08/03/javaStudy/javaStudyNote-7/
+            本文链接：https://alcedo.work/2021/08/03/javaStudy/javaStudyNote-7/
         </li>
         <li>
-            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
         </li>
     </ul>
 </div>
@@ -271,14 +271,14 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2022/04/12/mlClass/MLClass-1/"
+                           href="/2022/04/12/classes/MLClass-1/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
                                 <span class="post-nav-title-item">基于聚类分析的保护色动物识别</span>
-                                <span class="post-nav-item">Prev posts</span>
+                                <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
                     </div>
@@ -291,7 +291,7 @@
                         >
                             <span class="title flex-center">
                                 <span class="post-nav-title-item">java学习笔记-面向对象</span>
-                                <span class="post-nav-item">Next posts</span>
+                                <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
                               <i class="fas fa-chevron-right"></i>
@@ -307,7 +307,7 @@
                 <div class="comments-container">
     <div id="comment-anchor"></div>
     <div class="comment-area-title">
-        <i class="fas fa-comments">&nbsp;Comments</i>
+        <i class="fas fa-comments">&nbsp;评论</i>
     </div>
     
 
@@ -403,7 +403,7 @@
         </div>
         
         <div class="theme-info info-item">
-            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.1</a>
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.1</a>
         </div>
         
     </div>
@@ -504,7 +504,7 @@
                 <input autocomplete="off"
                        autocorrect="off"
                        autocapitalize="off"
-                       placeholder="Search..."
+                       placeholder="搜索..."
                        spellcheck="false"
                        type="search"
                        class="search-input"

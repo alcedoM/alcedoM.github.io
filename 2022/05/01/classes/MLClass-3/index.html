@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Alcedo">
+    
+    <title>
+        
+            基于Dehazenet的去雾卷积神经网络 |
+        
+        Alcedo
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/head.jpg">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"alcedo.work","root":"/","language":"zh-cn","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/head.jpg","favicon":"/images/head.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.jpg","description":"没人喜欢孤独，只是不愿失望"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.1"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                Alcedo
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">基于Dehazenet的去雾卷积神经网络</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/head.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Alcedo</span>
+                        
+                            <span class="author-label">大魔法师</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2022-05-01 09:44:23
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E8%AF%BE%E7%A8%8B/">课程</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/python/">python</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/study-note/">study note</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/machine-learning/">machine learning</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>啊哈哈哈哈哈，第三次作业来喽……</p>
+<p>这次花了好久的时间去学习pytorch，然后自己搭建出了一个CNN模型，进行去雾。emm然而效果还是不好</p>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><ul>
+<li>提供55张有雾图像以及对应的无雾图像</li>
+<li>建立网络，训练模型</li>
+<li>利用模型对测试集进行去雾并通过DHQI进行打分</li>
+</ul>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="安装CUDA（可选）"><a href="#安装CUDA（可选）" class="headerlink" title="安装CUDA（可选）"></a>安装CUDA（可选）</h3><ul>
+<li><p><strong>CUDA是NV的利用GPU进行数据处理的工具包，可以加快模型训练</strong></p>
+</li>
+<li><p>进入<a class="link"   target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-toolkit-archive" >CUDA官网<i class="fas fa-external-link-alt"></i></a>选择自己显卡对应的CUDA版本，可以百度搜索一下，我之前跟着教程下了CUDA10.1但是我的显卡用不了还得重安装，这里是<a class="link"   target="_blank" rel="noopener" href="https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html" >官网的对应表<i class="fas fa-external-link-alt"></i></a>，可以查看自己显卡驱动对应的CUDA版本</p>
+</li>
+<li><table>
+<thead>
+<tr>
+<th>CUDA Toolkit</th>
+<th><strong>Toolkit Driver Version</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>version</strong></td>
+<td><strong>Windows x86_64 Driver Version</strong></td>
+</tr>
+<tr>
+<td>CUDA 11.6 Update 2</td>
+<td>&gt;=511.65</td>
+</tr>
+<tr>
+<td>CUDA 11.6 Update 1</td>
+<td>&gt;=511.65</td>
+</tr>
+<tr>
+<td>CUDA 11.6 GA</td>
+<td>&gt;=511.23</td>
+</tr>
+<tr>
+<td>CUDA 11.5 Update 2</td>
+<td>&gt;=496.13</td>
+</tr>
+<tr>
+<td>CUDA 11.5 Update 1</td>
+<td>&gt;=496.13</td>
+</tr>
+<tr>
+<td>CUDA 11.5 GA</td>
+<td>&gt;=496.04</td>
+</tr>
+<tr>
+<td>CUDA 11.4 Update 4</td>
+<td>&gt;=472.50</td>
+</tr>
+<tr>
+<td>CUDA 11.4 Update 3</td>
+<td>&gt;=472.50</td>
+</tr>
+<tr>
+<td>CUDA 11.4 Update 2</td>
+<td>&gt;=471.41</td>
+</tr>
+<tr>
+<td>CUDA 11.4 Update 1</td>
+<td>&gt;=471.41</td>
+</tr>
+<tr>
+<td>CUDA 11.4.0 GA</td>
+<td>&gt;=471.11</td>
+</tr>
+<tr>
+<td>CUDA 11.3.1 Update 1</td>
+<td>&gt;=465.89</td>
+</tr>
+<tr>
+<td>CUDA 11.3.0 GA</td>
+<td>&gt;=465.89</td>
+</tr>
+<tr>
+<td>CUDA 11.2.2 Update 2</td>
+<td>&gt;=461.33</td>
+</tr>
+<tr>
+<td>CUDA 11.2.1 Update 1</td>
+<td>&gt;=461.09</td>
+</tr>
+<tr>
+<td>CUDA 11.2.0 GA</td>
+<td>&gt;=460.82</td>
+</tr>
+<tr>
+<td>CUDA 11.1.1 Update 1</td>
+<td>&gt;=456.81</td>
+</tr>
+<tr>
+<td>CUDA 11.1 GA</td>
+<td>&gt;=456.38</td>
+</tr>
+<tr>
+<td>CUDA 11.0.3 Update 1</td>
+<td>&gt;= 451.82</td>
+</tr>
+<tr>
+<td>CUDA 11.0.2 GA</td>
+<td>&gt;= 451.48</td>
+</tr>
+<tr>
+<td>CUDA 11.0.1 RC</td>
+<td>&gt;= 451.22</td>
+</tr>
+<tr>
+<td>CUDA 10.2.89</td>
+<td>&gt;= 441.22</td>
+</tr>
+<tr>
+<td>CUDA 10.1</td>
+<td>&gt;= 418.96</td>
+</tr>
+<tr>
+<td>CUDA 10.0.130</td>
+<td>&gt;= 411.31</td>
+</tr>
+<tr>
+<td>CUDA 9.2 (9.2.148 Update 1)</td>
+<td>&gt;= 398.26</td>
+</tr>
+<tr>
+<td>CUDA 9.2 (9.2.88)</td>
+<td>&gt;= 397.44</td>
+</tr>
+<tr>
+<td>CUDA 9.1 (9.1.85)</td>
+<td>&gt;= 391.29</td>
+</tr>
+<tr>
+<td>CUDA 9.0 (9.0.76)</td>
+<td>&gt;= 385.54</td>
+</tr>
+<tr>
+<td>CUDA 8.0 (8.0.61 GA2)</td>
+<td>&gt;= 376.51</td>
+</tr>
+<tr>
+<td>CUDA 8.0 (8.0.44)</td>
+<td>&gt;= 369.30</td>
+</tr>
+<tr>
+<td>CUDA 7.5 (7.5.16)</td>
+<td>&gt;= 353.66</td>
+</tr>
+<tr>
+<td>CUDA 7.0 (7.0.28)</td>
+<td>&gt;= 347.62</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h3 id="安装Pytorch"><a href="#安装Pytorch" class="headerlink" title="安装Pytorch"></a>安装Pytorch</h3><ul>
+<li>我用的是anaconda，所有就新建环境，然后在环境中安装</li>
+<li>如果安装了CUDA需要去<a class="link"   target="_blank" rel="noopener" href="https://pytorch.org/get-started/previous-versions/" >pytorch官网<i class="fas fa-external-link-alt"></i></a>查找对应版本的pytorch</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建环境</span></span><br><span class="line"><span class="comment"># py37是虚拟环境的名字可以自行修改</span></span><br><span class="line">conda create -n py37 python=3.7</span><br><span class="line"></span><br><span class="line"><span class="comment"># 激活环境</span></span><br><span class="line">conda activate py37</span><br><span class="line"></span><br><span class="line"><span class="comment"># 去官网查找对应CUDA版本的pytorch</span></span><br><span class="line"><span class="comment"># 我的CUDA版本是11.0所以找到对应的pytorch安装命令</span></span><br><span class="line">conda install pytorch==1.7.1 torchvision==0.8.2 torchaudio==0.7.2 cudatoolkit=11.0 -c pytorch</span><br></pre></td></tr></table></figure>
+
+<h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><ul>
+<li>建立大气模型：<em>I</em>(x) = <em>J</em>(x) <em>t</em>(x) + A ( 1 - <em>t</em>(x) )<ul>
+<li>I(x)是有雾图像，J(x)是无雾图像，t(x)是大气透射率，A是全局大气光</li>
+<li>通过该公式可是反推出无雾图像</li>
+</ul>
+</li>
+<li>建立卷积神经网络计算t(x)和A</li>
+<li>网络结构如下</li>
+<li><img src="/" alt="Snipaste_2022-05-01_10-30-18.png"></li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="read-data-py"><a href="#read-data-py" class="headerlink" title="read_data.py"></a>read_data.py</h3><ul>
+<li>建立读取数据以及数据预处理类</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> Dataset</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> torchvision <span class="keyword">import</span> transforms</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyData</span>(<span class="title class_ inherited__">Dataset</span>):</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, root_dir, label_dir</span>):</span><br><span class="line">        self.root_dir = root_dir</span><br><span class="line">        self.label_dir = label_dir</span><br><span class="line">        self.path = os.path.join(self.root_dir, self.label_dir)</span><br><span class="line">        <span class="comment"># 获取列表中所有文件名</span></span><br><span class="line">        self.img_path = os.listdir(self.path)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__getitem__</span>(<span class="params">self, idx</span>):</span><br><span class="line">        <span class="comment"># 获取idx下标文件路径</span></span><br><span class="line">        img_name = self.img_path[idx]</span><br><span class="line">        img_item_path = os.path.join(self.root_dir, self.label_dir, img_name)</span><br><span class="line">        <span class="comment"># 打开图片</span></span><br><span class="line">        img = Image.<span class="built_in">open</span>(img_item_path)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 新建totensor转换器</span></span><br><span class="line">        ToTensor = transforms.ToTensor()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 判断图片尺寸</span></span><br><span class="line">        <span class="keyword">if</span> img.width != <span class="number">1600</span>:</span><br><span class="line">            <span class="comment"># 把尺寸不合适得图片转换为宽1600高1200</span></span><br><span class="line">            img = img.resize((<span class="number">1600</span>, <span class="number">1200</span>))</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 将图片转换为tensor格式</span></span><br><span class="line">        img_ts = torch.reshape(ToTensor(img), (<span class="number">1</span>, <span class="number">3</span>, <span class="number">1200</span>, <span class="number">1600</span>))</span><br><span class="line">        label = self.label_dir</span><br><span class="line">        <span class="keyword">return</span> img_ts, label</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__len__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(self.img_path)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="model-py"><a href="#model-py" class="headerlink" title="model.py"></a>model.py</h3><ul>
+<li>建立卷积神经网络模型</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> torch.nn <span class="keyword">import</span> Module, Sequential, Conv2d, ReLU, MaxPool2d, Upsample, Sigmoid, Flatten, Linear</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DeHazeNet</span>(<span class="title class_ inherited__">Module</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(DeHazeNet, self).__init__()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 获取大气透射率t(x)</span></span><br><span class="line">        self.get_tx = Sequential(</span><br><span class="line">            <span class="comment"># 7*7卷积层-ReLU非线性激活-2*2最大池化层-上采样层</span></span><br><span class="line">            Conv2d(<span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, padding=<span class="number">3</span>),</span><br><span class="line">            ReLU(),</span><br><span class="line">            MaxPool2d(<span class="number">2</span>),</span><br><span class="line">            Upsample(scale_factor=<span class="number">2</span>),</span><br><span class="line">            <span class="comment"># 5*5卷积层-ReLU非线性激活-2*2最大池化层-上采样层</span></span><br><span class="line">            Conv2d(<span class="number">5</span>, <span class="number">5</span>, <span class="number">5</span>, padding=<span class="number">2</span>),</span><br><span class="line">            ReLU(),</span><br><span class="line">            MaxPool2d(<span class="number">2</span>),</span><br><span class="line">            Upsample(scale_factor=<span class="number">2</span>),</span><br><span class="line">            <span class="comment"># 3*3卷积层-ReLU非线性激活-2*2最大池化层-上采样层</span></span><br><span class="line">            Conv2d(<span class="number">5</span>, <span class="number">10</span>, <span class="number">3</span>, padding=<span class="number">1</span>),</span><br><span class="line">            ReLU(),</span><br><span class="line">            MaxPool2d(<span class="number">2</span>),</span><br><span class="line">            Upsample(scale_factor=<span class="number">2</span>),</span><br><span class="line">            <span class="comment"># 1*1卷积层-Sigmoid()非线性激活</span></span><br><span class="line">            Conv2d(<span class="number">10</span>, <span class="number">1</span>, <span class="number">1</span>),</span><br><span class="line">            Sigmoid()</span><br><span class="line">        )</span><br><span class="line">        <span class="comment"># 获取全球大气光成分A</span></span><br><span class="line">        self.get_A = Sequential(</span><br><span class="line">            <span class="comment"># 11-9-7卷积池化</span></span><br><span class="line">            Conv2d(<span class="number">3</span>, <span class="number">5</span>, <span class="number">11</span>, padding=<span class="number">10</span>, dilation=<span class="number">2</span>),</span><br><span class="line">            MaxPool2d(<span class="number">4</span>),</span><br><span class="line">            Conv2d(<span class="number">5</span>, <span class="number">5</span>, <span class="number">9</span>, padding=<span class="number">8</span>, dilation=<span class="number">2</span>),</span><br><span class="line">            MaxPool2d(<span class="number">4</span>),</span><br><span class="line">            Conv2d(<span class="number">5</span>, <span class="number">5</span>, <span class="number">7</span>, padding=<span class="number">6</span>, dilation=<span class="number">2</span>),</span><br><span class="line">            MaxPool2d(<span class="number">4</span>),</span><br><span class="line">            <span class="comment"># 全连接层</span></span><br><span class="line">            Flatten(),</span><br><span class="line">            <span class="comment"># 线性层将2250维转换为1维</span></span><br><span class="line">            Linear(<span class="number">2250</span>, <span class="number">256</span>),</span><br><span class="line">            Linear(<span class="number">256</span>, <span class="number">10</span>),</span><br><span class="line">            Linear(<span class="number">10</span>, <span class="number">1</span>)</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="comment"># 正向</span></span><br><span class="line">        tx = self.get_tx(x)</span><br><span class="line">        A = self.get_A(x)</span><br><span class="line">        <span class="keyword">return</span> tx, A</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="train-py"><a href="#train-py" class="headerlink" title="train.py"></a>train.py</h3><ul>
+<li>训练模块</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch.nn <span class="keyword">import</span> MSELoss</span><br><span class="line"><span class="keyword">from</span> torch.utils.tensorboard <span class="keyword">import</span> SummaryWriter</span><br><span class="line"><span class="keyword">from</span> model <span class="keyword">import</span> DeHazeNet</span><br><span class="line"><span class="keyword">from</span> read_data <span class="keyword">import</span> MyData</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_Jx</span>(<span class="params">img, tx, a</span>):</span><br><span class="line">    <span class="comment"># 通过透射率tx 和大气光成分a 恢复原图</span></span><br><span class="line">    <span class="comment"># 公式：J(x) = ( (I(x)-A) / (max(tx,t0) ) ) + A</span></span><br><span class="line">    j = torch.add(img, -a)</span><br><span class="line">    ones = torch.ones_like(tx)</span><br><span class="line">    ones = torch.mul(ones, <span class="number">0.1</span>)</span><br><span class="line">    t = torch.where(tx &gt; <span class="number">0.1</span>, tx, ones)</span><br><span class="line">    j = torch.div(j, t)</span><br><span class="line">    j = torch.add(j, a)</span><br><span class="line">    <span class="keyword">return</span> j</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入训练集</span></span><br><span class="line">root_dir = <span class="string">&#x27;dataset/train&#x27;</span></span><br><span class="line">dataset_gt = MyData(root_dir, <span class="string">&#x27;GT&#x27;</span>)</span><br><span class="line">dataset_haze = MyData(root_dir, <span class="string">&#x27;hazy&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建网络</span></span><br><span class="line">dhn = DeHazeNet()</span><br><span class="line"><span class="comment"># 创建损失函数 平方差</span></span><br><span class="line">loss = MSELoss()</span><br><span class="line"><span class="comment"># 创建优化函数SGD 学习率0.007</span></span><br><span class="line">optim = torch.optim.SGD(dhn.parameters(), lr=<span class="number">0.007</span>)</span><br><span class="line"><span class="comment"># 是否使用GPU处理</span></span><br><span class="line"><span class="keyword">if</span> torch.cuda.is_available():</span><br><span class="line">    dhn = dhn.cuda()</span><br><span class="line">    loss = loss.cuda()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建tensorboard得日志记录器</span></span><br><span class="line">writer = SummaryWriter(<span class="string">&#x27;logs&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化参数</span></span><br><span class="line">train = <span class="literal">True</span></span><br><span class="line">epoch = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 开始训练</span></span><br><span class="line"><span class="keyword">while</span> train:</span><br><span class="line">    running_loss = <span class="number">0.0</span></span><br><span class="line">    epoch += <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(dataset_haze)):</span><br><span class="line">        <span class="comment"># 进度</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;\rtraining... epoch: %d pic: %d/%d&quot;</span> % (epoch, i+<span class="number">1</span>, <span class="number">55</span>), flush=<span class="literal">True</span>, end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        <span class="comment"># 获取数据和目标</span></span><br><span class="line">        img, haze = dataset_haze[i]</span><br><span class="line">        target, gt = dataset_gt[i]</span><br><span class="line">        <span class="comment"># GPU</span></span><br><span class="line">        <span class="keyword">if</span> torch.cuda.is_available():</span><br><span class="line">            img = img.cuda()</span><br><span class="line">            target = target.cuda()</span><br><span class="line">        <span class="comment"># 正向传递</span></span><br><span class="line">        tx, a = dhn(img)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 恢复原图</span></span><br><span class="line">        Jx = get_Jx(img, tx, a)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 计算损失</span></span><br><span class="line">        result = loss(Jx, target)</span><br><span class="line">        <span class="comment"># 优化参数</span></span><br><span class="line">        optim.zero_grad()</span><br><span class="line">        result.backward()</span><br><span class="line">        optim.step()</span><br><span class="line">        <span class="comment"># 计算总损失</span></span><br><span class="line">        running_loss += result</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;\nloss:&#123;&#125;\n------------------------&#x27;</span>.<span class="built_in">format</span>(running_loss))</span><br><span class="line">    <span class="comment"># 记录日志</span></span><br><span class="line">    writer.add_scalar(<span class="string">&#x27;loss&#x27;</span>, running_loss, epoch)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 判断结束条件</span></span><br><span class="line">    <span class="keyword">if</span> running_loss &lt; <span class="number">3</span> <span class="keyword">or</span> epoch &gt; <span class="number">100</span>:</span><br><span class="line">        train = <span class="literal">False</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;training finished, saving...&#x27;</span>)</span><br><span class="line"><span class="comment"># 关闭日志记录</span></span><br><span class="line">writer.close()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存模型</span></span><br><span class="line">torch.save(dhn, <span class="string">&#x27;model_dhn.pth&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;save successfully.&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="use-model-py"><a href="#use-model-py" class="headerlink" title="use_model.py"></a>use_model.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torchvision <span class="keyword">import</span> transforms</span><br><span class="line"><span class="keyword">from</span> read_data <span class="keyword">import</span> MyData</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_Jx</span>(<span class="params">img, tx, a</span>):</span><br><span class="line">    <span class="comment"># 通过透射率tx 和大气光成分a 恢复原图</span></span><br><span class="line">    <span class="comment"># 公式：J(x) = ( (I(x)-A) / (max(tx,t0) ) ) + A</span></span><br><span class="line">    j = torch.add(img, -a)</span><br><span class="line">    ones = torch.ones_like(tx)</span><br><span class="line">    ones = torch.mul(ones, <span class="number">0.1</span>)</span><br><span class="line">    t = torch.where(tx &gt; <span class="number">0.1</span>, tx, ones)</span><br><span class="line">    j = torch.div(j, t)</span><br><span class="line">    j = torch.add(j, a)</span><br><span class="line">    <span class="keyword">return</span> j</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入测试集</span></span><br><span class="line">test_dir = <span class="string">&#x27;dataset/test&#x27;</span></span><br><span class="line">testset = MyData(test_dir, <span class="string">&#x27;haze&#x27;</span>)</span><br><span class="line"><span class="comment"># 导入训练好的模型</span></span><br><span class="line">dhn = torch.load(<span class="string">&#x27;model_dhn.pth&#x27;</span>)</span><br><span class="line"><span class="comment"># 使用GPU</span></span><br><span class="line"><span class="keyword">if</span> torch.cuda.is_available():</span><br><span class="line">    dhn = dhn.cuda()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">6</span>):</span><br><span class="line">    test_ts, h = testset[i]</span><br><span class="line">    input_ts = test_ts</span><br><span class="line">    <span class="comment"># 使用GPU</span></span><br><span class="line">    <span class="keyword">if</span> torch.cuda.is_available():</span><br><span class="line">        input_ts = input_ts.cuda()</span><br><span class="line"></span><br><span class="line">    tx, a = dhn(input_ts)</span><br><span class="line"></span><br><span class="line">    Jx = get_Jx(input_ts, tx, a)</span><br><span class="line"></span><br><span class="line">    Jx = torch.reshape(Jx, (<span class="number">3</span>, <span class="number">1200</span>, <span class="number">1600</span>))</span><br><span class="line">    ToPil = transforms.ToPILImage()</span><br><span class="line"></span><br><span class="line">    new = ToPil(Jx)</span><br><span class="line">    <span class="comment"># new.show()</span></span><br><span class="line">    new.save(<span class="string">&#x27;result/dh&#123;&#125;.jpg&#x27;</span>.<span class="built_in">format</span>(i+<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+
+<h1 id="存在问题"><a href="#存在问题" class="headerlink" title="存在问题"></a>存在问题</h1><ul>
+<li>可能使训练次数较少，或许使模型不合理，去雾的图像会有明显的失真彩色条带</li>
+<li>训练数据集太小仅有55张，<ul>
+<li>听其他组报告得知可以根据大气模型伪造一些有雾图片，扩大数据集</li>
+</ul>
+</li>
+<li>由于每次训练初始参数随机，导致有一次我训练500轮但是效果完全没有，去雾图像和有雾图像只能说是一模一样，还不如我之前仅训练77次的<ul>
+<li>可以先少训练几次看看效果再决定要不要继续，反正可以保存模型</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>参考文献：</p>
+<p>[1] <a class="link"   target="_blank" rel="noopener" href="https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&dbname=CJFDLAST2021&filename=XTYY202105029&uniplatform=NZKPT&v=gSJgB_xrLlDAz-LqWF_FmmzT7VkBzisWm9NvRtt9vqykUdGq0wwRVzeusvZ2VETJ" >王高峰,张赛,张亚南,邵倩,高涛.基于改进DehazeNet的图像去雾方法[J].计算机系统应用,2021,30(05):208-213.DOI:10.15888/j.cnki.csa.007910.<i class="fas fa-external-link-alt"></i></a></p>
+<p>[2] <a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/zhouaho2010/article/details/122976443" >DehazeNet个人学习笔记<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：基于Dehazenet的去雾卷积神经网络</li>
+        <li>本文作者：Alcedo</li>
+        <li>创建时间：2022-05-01 09:44:23</li>
+        <li>
+            本文链接：https://alcedo.work/2022/05/01/classes/MLClass-3/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/07/01/javaStudy/javaStudyNote-8/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">java学习笔记-常用类</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/04/14/classes/MLClass-2/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">基于贝叶斯分类器的P图识别器</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script 
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script >
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: '4Mhr8g94eF9FSB2KV5jSswEi-gzGzoHsz',
+                    appKey: 'p9k3BVGxo8dDWMAO5qxtlgfd',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '说点什么吧~',
+                    lang: 'zh-cn'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'Alcedo';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('false') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2023&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Alcedo</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.1</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-text">题目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0"><span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85CUDA%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="nav-text">安装CUDA（可选）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Pytorch"><span class="nav-text">安装Pytorch</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86"><span class="nav-text">算法原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-text">代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#read-data-py"><span class="nav-text">read_data.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#model-py"><span class="nav-text">model.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#train-py"><span class="nav-text">train.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#use-model-py"><span class="nav-text">use_model.py</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%98%E5%9C%A8%E9%97%AE%E9%A2%98"><span class="nav-text">存在问题</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts">
+    
+        <script src="/js/left-side-toggle.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script>
+    
+</div>
+
+
+
+</body>
+</html>

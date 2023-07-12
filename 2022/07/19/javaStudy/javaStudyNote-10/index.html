@@ -198,11 +198,11 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/Java/">Java</a>&nbsp;
+                        <a href="/tags/study-note/">study note</a>&nbsp;
                     </li>
                 
                     <li>
-                        | <a href="/tags/study-note/">study note</a>&nbsp;
+                        | <a href="/tags/Java/">Java</a>&nbsp;
                     </li>
                 
             </ul>
@@ -231,9 +231,9 @@
 <li>泛型只能是引用类型</li>
 <li>不同泛型对象不能相互赋值</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//泛型类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyGeneric</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">//使用泛型T</span></span><br><span class="line">    <span class="comment">//1创建变量,但是不能创建对象</span></span><br><span class="line">    T t;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//2.添加方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">(T t)</span></span>&#123;</span><br><span class="line">        System.out.println(t);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3.作为方法的返回值</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">getT</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> t;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//泛型类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyGeneric</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="comment">//使用泛型T</span></span><br><span class="line">    <span class="comment">//1创建变量,但是不能创建对象</span></span><br><span class="line">    T t;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//2.添加方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">show</span><span class="params">(T t)</span>&#123;</span><br><span class="line">        System.out.println(t);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3.作为方法的返回值</span></span><br><span class="line">    <span class="keyword">public</span> T <span class="title function_">getT</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> t;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//测试文件</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">testGeneric</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//使用泛型创建对象</span></span><br><span class="line">        MyGeneric&lt;String&gt; myGeneric = <span class="keyword">new</span> MyGeneric&lt;&gt;();</span><br><span class="line">        myGeneric.t = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">        myGeneric.show(<span class="string">&quot;sss&quot;</span>);</span><br><span class="line">        String str = myGeneric.getT();</span><br><span class="line">        System.out.println(str);</span><br><span class="line"></span><br><span class="line">        MyGeneric&lt;Integer&gt; myGeneric2 = <span class="keyword">new</span> MyGeneric&lt;&gt;();</span><br><span class="line">        myGeneric2.t = <span class="number">100</span>;</span><br><span class="line">        myGeneric2.show(<span class="number">200</span>);</span><br><span class="line">        Integer integer = myGeneric2.getT();</span><br><span class="line">        System.out.println(integer);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//测试文件</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">testGeneric</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//使用泛型创建对象</span></span><br><span class="line">        MyGeneric&lt;String&gt; myGeneric = <span class="keyword">new</span> <span class="title class_">MyGeneric</span>&lt;&gt;();</span><br><span class="line">        myGeneric.t = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">        myGeneric.show(<span class="string">&quot;sss&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> myGeneric.getT();</span><br><span class="line">        System.out.println(str);</span><br><span class="line"></span><br><span class="line">        MyGeneric&lt;Integer&gt; myGeneric2 = <span class="keyword">new</span> <span class="title class_">MyGeneric</span>&lt;&gt;();</span><br><span class="line">        myGeneric2.t = <span class="number">100</span>;</span><br><span class="line">        myGeneric2.show(<span class="number">200</span>);</span><br><span class="line">        <span class="type">Integer</span> <span class="variable">integer</span> <span class="operator">=</span> myGeneric2.getT();</span><br><span class="line">        System.out.println(integer);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="泛型接口"><a href="#泛型接口" class="headerlink" title="泛型接口"></a>泛型接口</h1><ul>
 <li>learing…</li>
@@ -245,14 +245,14 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>Post title：java学习笔记-泛型</li>
-        <li>Post author：Alcedo</li>
-        <li>Create time：2022-07-19 16:25:42</li>
+        <li>本文标题：java学习笔记-泛型</li>
+        <li>本文作者：Alcedo</li>
+        <li>创建时间：2022-07-19 16:25:42</li>
         <li>
-            Post link：https://alcedo.work/2022/07/19/javaStudy/javaStudyNote-10/
+            本文链接：https://alcedo.work/2022/07/19/javaStudy/javaStudyNote-10/
         </li>
         <li>
-            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
         </li>
     </ul>
 </div>
@@ -266,14 +266,14 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2023/04/25/javaStudy/awtStudyNote-2/"
+                           href="/2023/04/25/javaStudy/awtStudyNote-1/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">java-awt学习笔记-常见组件</span>
-                                <span class="post-nav-item">Prev posts</span>
+                                <span class="post-nav-title-item">javaGUI学习笔记-awt</span>
+                                <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
                     </div>
@@ -286,7 +286,7 @@
                         >
                             <span class="title flex-center">
                                 <span class="post-nav-title-item">java学习笔记-集合框架-上</span>
-                                <span class="post-nav-item">Next posts</span>
+                                <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
                               <i class="fas fa-chevron-right"></i>
@@ -302,7 +302,7 @@
                 <div class="comments-container">
     <div id="comment-anchor"></div>
     <div class="comment-area-title">
-        <i class="fas fa-comments">&nbsp;Comments</i>
+        <i class="fas fa-comments">&nbsp;评论</i>
     </div>
     
 
@@ -398,7 +398,7 @@
         </div>
         
         <div class="theme-info info-item">
-            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.1</a>
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.1</a>
         </div>
         
     </div>
@@ -499,7 +499,7 @@
                 <input autocomplete="off"
                        autocorrect="off"
                        autocapitalize="off"
-                       placeholder="Search..."
+                       placeholder="搜索..."
                        spellcheck="false"
                        type="search"
                        class="search-input"

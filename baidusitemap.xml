@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://alcedo.work/2023/04/25/javaStudy/awtStudyNote-1/</loc>
-    <lastmod>2023-04-25</lastmod>
+    <loc>http://alcedo.work/2023/06/21/classes/InfoTheroy/</loc>
+    <lastmod>2023-07-12</lastmod>
   </url>
   <url>
-    <loc>http://alcedo.work/2023/04/25/javaStudy/awtStudyNote-2/</loc>
+    <loc>http://alcedo.work/2022/05/01/classes/MLClass-3/</loc>
+    <lastmod>2023-07-12</lastmod>
+  </url>
+  <url>
+    <loc>http://alcedo.work/2022/04/14/classes/MLClass-2/</loc>
+    <lastmod>2023-07-12</lastmod>
+  </url>
+  <url>
+    <loc>http://alcedo.work/2022/04/12/classes/MLClass-1/</loc>
+    <lastmod>2023-07-12</lastmod>
+  </url>
+  <url>
+    <loc>http://alcedo.work/2023/04/25/javaStudy/awtStudyNote-1/</loc>
     <lastmod>2023-04-25</lastmod>
   </url>
   <url>
@@ -43,18 +55,6 @@
   <url>
     <loc>http://alcedo.work/2021/08/03/javaStudy/javaStudyNote-7/</loc>
     <lastmod>2022-07-01</lastmod>
-  </url>
-  <url>
-    <loc>http://alcedo.work/2022/05/01/mlClass/MLClass-3/</loc>
-    <lastmod>2022-05-01</lastmod>
-  </url>
-  <url>
-    <loc>http://alcedo.work/2022/04/12/mlClass/MLClass-1/</loc>
-    <lastmod>2022-04-14</lastmod>
-  </url>
-  <url>
-    <loc>http://alcedo.work/2022/04/14/mlClass/MLClass-2/</loc>
-    <lastmod>2022-04-14</lastmod>
   </url>
   <url>
     <loc>http://alcedo.work/2021/08/01/javaStudy/javaStudyNote-5/</loc>
