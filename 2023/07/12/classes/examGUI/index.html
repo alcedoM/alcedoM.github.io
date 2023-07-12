@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Alcedo">
+    
+    <title>
+        
+            基于Java的考试系统GUI |
+        
+        Alcedo
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/head.jpg">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"alcedo.work","root":"/","language":"zh-cn","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/head.jpg","favicon":"/images/head.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.jpg","description":"没人喜欢孤独，只是不愿失望"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.1"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                Alcedo
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">基于Java的考试系统GUI</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/head.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Alcedo</span>
+                        
+                            <span class="author-label">大魔法师</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2023-07-12 18:57:24
+    </span>
+    
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="考试系统使用文档"><a href="#考试系统使用文档" class="headerlink" title="考试系统使用文档"></a>考试系统使用文档</h1><h2 id="打开程序"><a href="#打开程序" class="headerlink" title="打开程序"></a>打开程序</h2><ul>
+<li>运行<code>ExamGUI.exe</code>进入主程序，登录界面</li>
+</ul>
+<p><img src="/2023/07/12/classes/examGUI/image-20230619224509955.png" alt="image-20230619224509955"></p>
+<h2 id="登录注册界面"><a href="#登录注册界面" class="headerlink" title="登录注册界面"></a>登录注册界面</h2><ul>
+<li>登录界面<ul>
+<li>内置一个管理员账户：admin 密码：admin</li>
+<li>内置一个普通账户：test 密码：test</li>
+<li>登录后进入主界面</li>
+<li>注意<ul>
+<li>学号密码不能为空</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2023/07/12/classes/examGUI/image-20230619224558607.png" alt="image-20230619224558607"></p>
+<ul>
+<li>注册界面<ul>
+<li>输入13位学号，并重复两次密码即可注册</li>
+<li>注意<ul>
+<li>学号必须为数字</li>
+<li>学号必须为13位</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2023/07/12/classes/examGUI/image-20230619224646630.png" alt="image-20230619224646630"></p>
+<h2 id="主界面"><a href="#主界面" class="headerlink" title="主界面"></a>主界面</h2><ul>
+<li>普通账户<ul>
+<li>左边栏<ul>
+<li>显示用户名</li>
+<li>登出按钮，点击登出，返回登录</li>
+</ul>
+</li>
+<li>右边考试卡片栏<ul>
+<li>会展示管理员已经发布的考试（内置两套考试）</li>
+<li>每个卡片显示考试名称，考试题目数量，考试时间</li>
+<li>进入按钮，点击进入按钮可以进入考试界面，进行答题</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2023/07/12/classes/examGUI/image-20230619224716716.png" alt="image-20230619224716716"></p>
+<ul>
+<li>管理员账户<ul>
+<li>左边栏<ul>
+<li>显示用户名</li>
+<li>登出按钮：点击登出，返回登录</li>
+<li>新建考试按钮：新建一个考试，跳转至考试基本信息填写</li>
+<li>导入考试按钮：从文件导入到系统的数据库中</li>
+</ul>
+</li>
+<li>右边考试卡片栏<ul>
+<li>会展示每个考试（内置两套考试）</li>
+<li>每个卡片显示考试名称，考试题目数量，题库数量，考试时间（随机抽取功能就是从题库中抽取考试题目数量个题目）</li>
+<li>编辑按钮：进入考试编辑页面</li>
+<li>发布/取消发布按钮：切换发布状态，点击发布，普通用户即可以进入答题</li>
+<li>删除按钮：删除该考试</li>
+<li>导出按钮：可以单独导出该考试到文件</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2023/07/12/classes/examGUI/image-20230619224800997.png" alt="image-20230619224800997"></p>
+<ul>
+<li>新建考试按钮后弹出基本信息界面，填写完成后即可进入编辑界面</li>
+</ul>
+<p><img src="/2023/07/12/classes/examGUI/image-20230619225514385.png" alt="image-20230619225514385"></p>
+<h2 id="考试界面"><a href="#考试界面" class="headerlink" title="考试界面"></a>考试界面</h2><ul>
+<li><p>从题库中随机出题</p>
+</li>
+<li><p>左边栏</p>
+<ul>
+<li>显示用户名</li>
+<li>显示考试时间（倒计时，时间到了之后自动交卷）</li>
+<li>题目跳转按钮：点击即可跳转对应的题目</li>
+<li>提交按钮：点击即可提交，并返回主界面<ul>
+<li>答完所有题会自动判断并弹窗：答对数量/题目总数</li>
+</ul>
+</li>
+<li>放弃按钮：点击放弃考试直接返回主界面</li>
+</ul>
+</li>
+<li><p>右边题目栏</p>
+<ul>
+<li>显示题目</li>
+<li>点击选项进行作答</li>
+<li>下一题按钮：跳转下一题</li>
+<li>上一题按钮：跳转上一题</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2023/07/12/classes/examGUI/image-20230619225632519.png" alt="image-20230619225632519"></p>
+<ul>
+<li>四种题型展示</li>
+</ul>
+<p><img src="/2023/07/12/classes/examGUI/image-20230619230511309.png" alt="image-20230619230511309"></p>
+<h2 id="试题编辑界面"><a href="#试题编辑界面" class="headerlink" title="试题编辑界面"></a>试题编辑界面</h2><ul>
+<li>左边栏<ul>
+<li>显示用户名</li>
+<li>可修改考试名称</li>
+<li>可修改需要答题的数量（随机出题的数量）</li>
+<li>可修改考试时间</li>
+<li>题目跳转按钮：点击即可跳转对应的题目</li>
+<li>新建题目按钮：点击即可在最后新建一个题目</li>
+<li>保存按钮：保存编辑内容</li>
+<li>返回按钮：放弃未保存的修改并返回主界面</li>
+</ul>
+</li>
+<li>右边题目栏<ul>
+<li>可以编辑题干和各个选项</li>
+<li>删除按钮：删除该题目</li>
+<li>可以选择该题目的正确答案</li>
+<li>下一题按钮：跳转下一题</li>
+<li>上一题按钮：跳转上一题</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2023/07/12/classes/examGUI/image-20230619225043455.png" alt="image-20230619225043455"></p>
+<ul>
+<li>新建题目按钮可以选择不同的题目类型</li>
+</ul>
+<p><img src="/2023/07/12/classes/examGUI/image-20230619225319982.png" alt="image-20230619225319982"></p>
+<hr>
+<h1 id="考试系统开发文档"><a href="#考试系统开发文档" class="headerlink" title="考试系统开发文档"></a>考试系统开发文档</h1><h2 id="源码地址"><a href="#源码地址" class="headerlink" title="源码地址"></a>源码地址</h2><p>Github：<a class="link"   target="_blank" rel="noopener" href="https://github.com/alcedoM/ExamSystemGUI" >https://github.com/alcedoM/ExamSystemGUI<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="设计需求"><a href="#设计需求" class="headerlink" title="设计需求"></a>设计需求</h2><ul>
+<li>使用文本文件或 Microsoft Excel 或者数据库存放试题，形成题库。</li>
+<li>程序每次从题库随机抽取若干道题目形成一张试卷，用户可以依次做试卷上的题目，允许用户向前、向后翻阅试卷上的题目。</li>
+<li>用户每次做完一个题目必须确定该题目的答案，否则无效。</li>
+<li>有计时功能，比如指定一张试卷限用时 15 分钟，时间一到用户再无法答题，提示用户提交试卷。</li>
+<li>用户一旦提交试卷，程序将给出试卷的分值。</li>
+<li>为了达到反复训练的目的，用户提交试卷后可以继续让程序再出一套试卷。</li>
+<li>题型可以包括单项选择题或判断题或填空题等。</li>
+<li>每套试卷及其标准答案可以单独保存。</li>
+</ul>
+<h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><ul>
+<li>ui：存储各种界面<ul>
+<li>MainInterface：主界面（登录，注册）</li>
+<li>InnerInterface：内部界面（显示考试列表）</li>
+<li>ExamInterface：考试界面</li>
+<li>EditExamInterface：编辑考试界面</li>
+<li>NewExamInfo：新建考试界面</li>
+</ul>
+</li>
+<li>components：存储各种组件<ul>
+<li>LoginCard：登录卡片</li>
+<li>RegisterCard：注册卡片</li>
+<li>QuestCard：题目卡片</li>
+<li>EditQuestCard：编辑题目卡片</li>
+<li>ExamBriefCard：考试简介卡片</li>
+</ul>
+</li>
+<li>servises：存储各个服务<ul>
+<li>ExamService：考试相关服务（读取考试，保存考试，等）</li>
+<li>LoginService：登录相关服务</li>
+<li>RegisterService：注册相关服务</li>
+</ul>
+</li>
+<li>modules：存储相关类<ul>
+<li>Answer：答案类</li>
+<li>Exam：考试类</li>
+<li>Quest：题目类</li>
+<li>User：用户类</li>
+</ul>
+</li>
+<li>Util：其他<ul>
+<li>LongLimit：TextField的限制，限制长度</li>
+<li>NumberLongLimit：TextField的限制，限制数字长度</li>
+<li>ScreenUtils：获取屏幕尺寸</li>
+</ul>
+</li>
+</ul>
+<h2 id="依赖lib"><a href="#依赖lib" class="headerlink" title="依赖lib"></a>依赖lib</h2><ul>
+<li>fastjson-1.2.53：将数据按类转化为json数据方便存储到本地</li>
+<li>af-swing-1.0：美化类，大部分按钮使用该类的内容</li>
+</ul>
+<h2 id="功能实现"><a href="#功能实现" class="headerlink" title="功能实现"></a>功能实现</h2><h3 id="文本存放试题"><a href="#文本存放试题" class="headerlink" title="文本存放试题"></a>文本存放试题</h3><ul>
+<li><p>使用fastjson将考试列表转化为json并存到txt文件中</p>
+</li>
+<li><p>```java<br>//位于ExamService中第45行<br>public void saveExam(List<Exam> examList) throws IOException {</p>
+<pre><code>File savedata = new File(&quot;data\\exams.txt&quot;);
+String data = JSON.toJSONString(examList);
+if(!savedata.exists())&#123;
+    savedata.createNewFile();
+&#125;
+
+BufferedWriter bufferedWriter = new BufferedWriter(
+    new OutputStreamWriter(new FileOutputStream(savedata), StandardCharsets.UTF_8));
+
+bufferedWriter.write(data);
+bufferedWriter.close();
+</code></pre>
+<p>}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- ![image-20230619233843202](examGUI/image-20230619233843202.png)</span><br><span class="line"></span><br><span class="line">### 随机抽取</span><br><span class="line"></span><br><span class="line">- 使用Shuffle随机打乱题库，取前n个作为该次考试的考题</span><br><span class="line"></span><br><span class="line">- ```java</span><br><span class="line">  //位于ExamInterface中第44行</span><br><span class="line">  Collections.shuffle(quests);</span><br><span class="line">  List&lt;Quest&gt; randomQuests = quests.subList(0,exam.getQuestNumNeedAns());</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="题目切换"><a href="#题目切换" class="headerlink" title="题目切换"></a>题目切换</h3><ul>
+<li><p>使用CardLayout，使用相应的函数可以切换前一个，后一个，以及任意一道题</p>
+</li>
+<li><p>```java<br>//位于ExamInterface第121行<br>//插入题目卡片<br>for (int i = 0; i &lt; randomQuests.size(); i++) {</p>
+<pre><code>questPanel.add(new QuestCard(randomQuests.get(i),this,i+1),&quot;quest&quot;+i+1);
+</code></pre>
+<p>}</p>
+<p>//设置监听函数<br>//下一题<br>next.addActionListener(new ActionListener() {</p>
+<pre><code>@Override
+public void actionPerformed(ActionEvent e) &#123;
+    cardLayout.next(questPanel);
+&#125;
+</code></pre>
+<p>});<br>//上一题<br>pre.addActionListener(new ActionListener() {</p>
+<pre><code>@Override
+public void actionPerformed(ActionEvent e) &#123;
+    cardLayout.previous(questPanel);
+&#125;
+</code></pre>
+<p>});<br>//跳转特定题目<br>ActionListener toTargetQuest = new ActionListener() {</p>
+<pre><code>@Override
+public void actionPerformed(ActionEvent e) &#123;
+    for (int i = 0; i &lt; exam.getQuestNumNeedAns(); i++) &#123;
+        if(e.getActionCommand().equals(String.valueOf(i+1)))&#123;
+            cardLayout.show(questPanel,&quot;quest&quot;+i+1);
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>};</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 计时功能</span><br><span class="line"></span><br><span class="line">- 使用多线程，在进入考试界面的时候，创建计时线程</span><br><span class="line"></span><br><span class="line">- ```java</span><br><span class="line">  //位于ExamInterface第72行</span><br><span class="line">  Thread timeCount = new Thread(() -&gt; &#123;</span><br><span class="line">      int sec = 59;</span><br><span class="line">      //获取考试时间</span><br><span class="line">      int min = exam.getTimeLimit() - 1;</span><br><span class="line">      //计时</span><br><span class="line">      for (int i = 0; i &lt; exam.getTimeLimit() * 60; i++) &#123;</span><br><span class="line">          try &#123;</span><br><span class="line">              timeLable.setText(&quot;考试时间：&quot; + min + &quot;:&quot; + sec);</span><br><span class="line">              if (min == 0 &amp;&amp; sec == 0) &#123;</span><br><span class="line">                  JOptionPane.showMessageDialog(jf, &quot;时间到,自动提交考卷&quot;, &quot;提示&quot;, JOptionPane.INFORMATION_MESSAGE);</span><br><span class="line">                  scoreAndReturn(exam, randomQuests, true, currentUser);</span><br><span class="line">              &#125;</span><br><span class="line">              Thread.sleep(1000);</span><br><span class="line">              sec--;</span><br><span class="line">              if (sec &lt; 0) &#123;</span><br><span class="line">                  sec = 59;</span><br><span class="line">                  min--;</span><br><span class="line">              &#125;</span><br><span class="line">          &#125; catch (InterruptedException | IOException e) &#123;</span><br><span class="line">              throw new RuntimeException(e);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">  timeCount.start();</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="自动打分"><a href="#自动打分" class="headerlink" title="自动打分"></a>自动打分</h3><ul>
+<li><p>用户提交之后，通过比较用户答案和标准答案来打分，最终给出：答对题目/总题目，的形式</p>
+</li>
+<li><p>```java<br>//位于ExamInterface第241行<br>int correctNum = 0;<br>for (Quest quest : quests) {</p>
+<pre><code>if(quest.getCurrentAns()!=null &amp;&amp; quest.getCurrentAns().equals(quest.getCorrectAns()))&#123;
+    correctNum++;
+&#125;
+</code></pre>
+<p>}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 多题型</span><br><span class="line"></span><br><span class="line">- 在Quest类中定义四个常量，表示四种题型，对应处理的时候通过判断题目类型做出不同的处理</span><br><span class="line">- 代码具体见附录源码中components/QuestCard和EditQuestCard的代码</span><br><span class="line"></span><br><span class="line">### 每套试卷单独保存</span><br><span class="line"></span><br><span class="line">- 添加按钮和对应的服务保存单独试卷，添加文件选择器，以便于选择保存路径</span><br><span class="line"></span><br><span class="line">- ```java</span><br><span class="line">  //位于ExamService第87行</span><br><span class="line">  public void exportExam(Exam exam, File dir) throws IOException &#123;</span><br><span class="line">      String examName = exam.getExamName();</span><br><span class="line">      File savedata = new File(dir,examName+&quot;.txt&quot;);</span><br><span class="line">      String data = JSON.toJSONString(exam);</span><br><span class="line">  </span><br><span class="line">      if(!savedata.exists())&#123;</span><br><span class="line">          savedata.createNewFile();</span><br><span class="line">      &#125;</span><br><span class="line">  </span><br><span class="line">      BufferedWriter bufferedWriter = new BufferedWriter(</span><br><span class="line">          new OutputStreamWriter(new FileOutputStream(savedata), StandardCharsets.UTF_8));</span><br><span class="line">  </span><br><span class="line">      bufferedWriter.write(data);</span><br><span class="line">      bufferedWriter.close();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></li>
+<li><pre><code class="java">//位于ExamBriefCard第110行
+//导出考试
+exportExam.addActionListener(new ActionListener() &#123;
+    @Override
+    public void actionPerformed(ActionEvent e) &#123;
+        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int state = chooser.showSaveDialog(jf);
+        File dir = chooser.getSelectedFile();
+
+        if(state == JFileChooser.APPROVE_OPTION)&#123;
+            try &#123;
+                new ExamService().exportExam(exam, dir);
+            &#125; catch (Exception e1) &#123;
+                e1.printStackTrace();
+            &#125;
+        &#125;
+    &#125;
+&#125;);
+</code></pre>
+</li>
+</ul>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：基于Java的考试系统GUI</li>
+        <li>本文作者：Alcedo</li>
+        <li>创建时间：2023-07-12 18:57:24</li>
+        <li>
+            本文链接：https://alcedo.work/2023/07/12/classes/examGUI/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2023/06/21/classes/InfoTheroy/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">霍夫曼香农费诺编码器GUI</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script 
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script >
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: '4Mhr8g94eF9FSB2KV5jSswEi-gzGzoHsz',
+                    appKey: 'p9k3BVGxo8dDWMAO5qxtlgfd',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '说点什么吧~',
+                    lang: 'zh-cn'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'Alcedo';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('false') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2023&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Alcedo</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.1</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%80%83%E8%AF%95%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3"><span class="nav-text">考试系统使用文档</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E7%A8%8B%E5%BA%8F"><span class="nav-text">打开程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C%E7%95%8C%E9%9D%A2"><span class="nav-text">登录注册界面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E7%95%8C%E9%9D%A2"><span class="nav-text">主界面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%80%83%E8%AF%95%E7%95%8C%E9%9D%A2"><span class="nav-text">考试界面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%95%E9%A2%98%E7%BC%96%E8%BE%91%E7%95%8C%E9%9D%A2"><span class="nav-text">试题编辑界面</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%80%83%E8%AF%95%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3"><span class="nav-text">考试系统开发文档</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BA%90%E7%A0%81%E5%9C%B0%E5%9D%80"><span class="nav-text">源码地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E9%9C%80%E6%B1%82"><span class="nav-text">设计需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="nav-text">项目结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96lib"><span class="nav-text">依赖lib</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0"><span class="nav-text">功能实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E5%AD%98%E6%94%BE%E8%AF%95%E9%A2%98"><span class="nav-text">文本存放试题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E5%88%87%E6%8D%A2"><span class="nav-text">题目切换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E6%89%93%E5%88%86"><span class="nav-text">自动打分</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts">
+    
+        <script src="/js/left-side-toggle.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script>
+    
+</div>
+
+
+
+</body>
+</html>
